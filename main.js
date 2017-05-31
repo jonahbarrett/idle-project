@@ -32,6 +32,7 @@ function save(){
 	  world: world
 	}
 	localStorage.setItem("save",JSON.stringify(save));
+	ga('send', 'event', 'My Game', 'Save');
 };
 
 function loadGame() {
