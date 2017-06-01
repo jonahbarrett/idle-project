@@ -1,7 +1,58 @@
-#page{
-	border-style: solid;
-	border-width: 4px;
-	border-color: #333333;
-	width: 900px;
+#goldDisplay {
+	margin: left;
+    font-size: 1.2vw;
+    color: white;
+	width: 8%;
+	border-radius: 0px;
+	font-family: Arial;
+	background: #8f9091;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 2px;
 }
 
+#buyMiners {
+	display: inline-block;
+    font-size: 18px;
+    color: white;
+	width: 8%;
+	border-radius: 0px;
+	font-family: Arial;
+	background: #8f9091;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 2px;
+}
+
+#buyDrills {
+	display: inline-block;
+    font-size: 18px;
+    color: white;
+	width: 8%;
+	border-radius: 0px;
+	font-family: Arial;
+	background: #8f9091;
+	padding: 10px 20px 10px 20px;
+	border: solid #ffffff 2px;
+}
+
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  background: #292929;
+  padding: 10px 20px 10px 20px;
+  border: solid #ffffff 2px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #5e5e5e;
+  text-decoration: none;
+}
+
+html, body {
+	background: #585859;
+}
