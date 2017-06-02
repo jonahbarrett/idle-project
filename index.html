@@ -4,37 +4,37 @@
 	<link rel="shortcut icon" type="image/png" href="favicon.ico">
 	<title>Kingdom Creator</title>
 	<style>
-	
+
 	</style>
   </head>
   <body onload="loadGame()">
-  
+
 	<h1>Kingdom Creator v0.2</h1>
-  
+
      <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')">London</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+  <button class="tablinks" onclick="openCity(event, 'Wood')">Wood</button>
+  <button class="tablinks" onclick="openCity(event, 'Stone')">Stone</button>
+  <button class="tablinks" onclick="openCity(event, 'Metal')">Metal</button>
 </div>
 
-	<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+	<div id="Wood" class="tabcontent">
+  <h3>Wood</h3>
+  <p>Gather lumber.</p>
 </div>
 
-	<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
+	<div id="Stone" class="tabcontent">
+  <h3>Stone</h3>
+  <p>Gather stone.</p>
 </div>
 
-	<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+	<div id="Metal" class="tabcontent">
+  <h3>Metal</h3>
+  <p>Mine metal.</p>
 </div>
- 
- 
- 
- 
+
+
+
+
   <div id="goldDisplay" class="resources">
     Gold: <span id="gold"></span>
 	</div>
@@ -45,7 +45,7 @@
 	<br />
     Cost: <span id="minerCost"></span>
 	</div>
-	
+
 	<div id="buyDrills" class="buildings">
     <button class="btn" onclick="buyDrill()">Buy Drill</button>
 	<br />
@@ -53,25 +53,25 @@
 	<br />
     Cost: <span id="drillCost"></span>
 	</div> -->
-	
+
 	<div id="saveButtons">
-	
-	
-	
-	
-	
+
+
+
+
+
 	<br /> <br />
 	<button class="btn" onclick="save()">Save</button>
     <button class="btn" onclick="deleteSave()">Delete Save</button>
 	</div>
-   
-   
-   
-   
-  
-   
-   
-   
+
+
+
+
+
+
+
+
    <script type="text/javascript" src="main.js"></script>
   </body>
 </html>

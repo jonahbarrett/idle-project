@@ -4,12 +4,12 @@ var world = 1;
 var drills = 0;
 
 
-	
+
 function mineClick (number){
 	gold = gold + number;
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
 	};
-	
+
 function hireMiner(){
 	var minerCost = Math.floor(10 * Math.pow(1.2,miners));
 	if(gold >= minerCost){
@@ -128,3 +128,6 @@ function openCity(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
