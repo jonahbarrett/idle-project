@@ -115,19 +115,18 @@ window.setInterval(function() {
 
 
 
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+function openVTab(evt, vTabName) {
+    var i, VTabcontent, VTablinks;
+    VTabcontent = document.getElementsByClassName("VTabcontent");
+    for (i = 0; i < VTabcontent.length; i++) {
+        VTabcontent[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    VTablinks = document.getElementsByClassName("VTablinks");
+    for (i = 0; i < VTablinks.length; i++) {
+        VTablinks[i].className = VTablinks[i].className.replace(" active", "");
     }
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(vTabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
 
-// Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();

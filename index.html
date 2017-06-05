@@ -3,41 +3,43 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
 	<link rel="shortcut icon" type="image/png" href="favicon.ico">
 	<title>Kingdom Creator</title>
-	<style>
-
-	</style>
   </head>
   <body onload="loadGame()">
 
-	<h1>Kingdom Creator v0.2</h1>
+	<h1>Kingdom Creator <span id="version"> v0.2</span></h1>
 
-     <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Wood')">Wood</button>
-  <button class="tablinks" onclick="openCity(event, 'Stone')">Stone</button>
-  <button class="tablinks" onclick="openCity(event, 'Metal')">Metal</button>
-</div>
+     <div class="VTab">
+  <button class="VTablinks" onclick="openVTab(event, 'Resources')" id="defaultOpen">Resources</button>
+  <button class="VTablinks" onclick="openVTab(event, 'Shops')"><span id="gold">0</span> gold</button>
+  <button class="VTablinks" onclick="openVTab(event, 'Land')">Land</button>
+  <button class="VTablinks" onclick="openVTab(event, 'Options')">Options</button>
+    </div>
 
-	<div id="Wood" class="tabcontent">
+	<div id="Resources" class="VTabcontent">
   <h3>Wood</h3>
   <p>Gather lumber.</p>
+  </div>
+
+	<div id="Shops" class="VTabcontent">
+    <p>yeah buddy</p>
 </div>
 
-	<div id="Stone" class="tabcontent">
-  <h3>Stone</h3>
-  <p>Gather stone.</p>
-</div>
-
-	<div id="Metal" class="tabcontent">
+	<div id="Land" class="VTabcontent">
   <h3>Metal</h3>
   <p>Mine metal.</p>
+  </div>
+
+<div id="Options" class="VTabcontent">
+  <div id="saveButtons">
+  <button class="btn" onclick="save()">Save</button><br />
+    <button class="btn" onclick="deleteSave()">Delete Save</button>
+  </div>
 </div>
 
 
 
 
-  <div id="goldDisplay" class="resources">
-    Gold: <span id="gold"></span>
-	</div>
+
  <!--  <div id="buyMiners" class="buildings">
     <button class="btn" onclick="hireMiner()">Hire Miner</button>
 	<br />
@@ -54,16 +56,7 @@
     Cost: <span id="drillCost"></span>
 	</div> -->
 
-	<div id="saveButtons">
 
-
-
-
-
-	<br /> <br />
-	<button class="btn" onclick="save()">Save</button>
-    <button class="btn" onclick="deleteSave()">Delete Save</button>
-	</div>
 
 
 

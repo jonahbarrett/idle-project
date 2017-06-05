@@ -60,9 +60,10 @@ html, body {
 
 h1{
 	position:relative;
-	min-height: 50px;
+	min-height: 30px;
 	margin-bottom: 20px;
 	border: 1px solid transparent;
+	font-size: 18px;
 	font-family: "Arial", sans-serif;
 	border-radius: 3px;
 	background-color: #f8f8f8;
@@ -72,12 +73,14 @@ h1{
 	font-weight: lighter;
 }
 
-
+#version{
+font-size: 85%;
+}
 
 body {font-family: "Lato", sans-serif;}
 
-/* Style the tab */
-div.tab {
+/* Style the VTab */
+div.VTab {
   overflow: hidden;
 	width: 80%;
 	display: inline-block;
@@ -85,8 +88,8 @@ div.tab {
 	border-bottom-color: #ddd;
 }
 
-/* Style the buttons inside the tab */
-div.tab button {
+/* Style the buttons inside the VTab */
+div.VTab button {
     background-color: inherit;
     float: left;
 		border:none;
@@ -98,26 +101,24 @@ div.tab button {
 }
 
 /* Change background color of buttons on hover */
-div.tab button:hover {
+div.VTab button:hover {
     background-color: #ddd;
 }
 
-/* Create an active/current tablink class */
-div.tab button.active {
-		border-radius: 3px;
-    border: 1px solid #ddd;
-		border-bottom:1px solid white;
+/* Create an active/current VTablink class */
+div.VTab button.active {
+		color:  #ca0f0f;
 }
 
-/* Style the tab content */
-.tabcontent {
+/* Style the VTab content */
+.VTabcontent {
     display: none;
     padding: 6px 12px;
     -webkit-animation: fadeEffect 1s;
     animation: fadeEffect 1s;
 }
 
-/* Fade in tabs */
+/* Fade in VTabs */
 @-webkit-keyframes fadeEffect {
     from {opacity: 0;}
     to {opacity: 1;}
