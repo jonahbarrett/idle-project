@@ -115,18 +115,39 @@ window.setInterval(function() {
 
 
 
-function openVTab(evt, vTabName) {
-    var i, VTabcontent, VTablinks;
-    VTabcontent = document.getElementsByClassName("VTabcontent");
-    for (i = 0; i < VTabcontent.length; i++) {
-        VTabcontent[i].style.display = "none";
+function openHTab(evt, HTabName) {
+    var i, HTabcontent, HTablinks;
+    HTabcontent = document.getElementsByClassName("HTabcontent");
+    for (i = 0; i < HTabcontent.length; i++) {
+        HTabcontent[i].style.display = "none";
     }
-    VTablinks = document.getElementsByClassName("VTablinks");
-    for (i = 0; i < VTablinks.length; i++) {
-        VTablinks[i].className = VTablinks[i].className.replace(" active", "");
+    HTablinks = document.getElementsByClassName("HTablinks");
+    for (i = 0; i < HTablinks.length; i++) {
+        HTablinks[i].className = HTablinks[i].className.replace(" active", "");
     }
-    document.getElementById(vTabName).style.display = "block";
+    document.getElementById(HTabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
 
 document.getElementById("defaultOpen").click();
+
+function openVTab(evt, VTabName) {
+    // Declare all variables
+    var j, VTabcontent, VTablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    VTabcontent = document.getElementsByClassName("VTabcontent");
+    for (j = 0; j < VTabcontent.length; j++) {
+        VTabcontent[j].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    VTablinks = document.getElementsByClassName("VTablinks");
+    for (j = 0; j < VTablinks.length; j++) {
+        VTablinks[j].className = VTablinks[j].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the link that opened the tab
+    document.getElementById(VTabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
