@@ -25,6 +25,27 @@ float: right;
 	outline: none;
 }
 
+.sellBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+	border: 1px #ccc solid;
+  font-family: Arial;
+	background: white;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+	width: 100%;
+}
+
+.sellBtn:hover {
+  background: #dedede;
+}
+
+.sellBtn:focus {
+	outline: none;
+}
+
 html, body {
 	background: white;
 }
@@ -116,7 +137,6 @@ div.VTab {
 	border-collapse: collapse;
   overflow: hidden;
 	width: 18.5%;
-	display: inline-block;
 }
 
 /* Style the buttons inside the tab */
@@ -148,7 +168,6 @@ div.VTab button.active {
 .VTabcontent {
 		float: left;
 		position: relative;
-		display:inline-block;
     padding: 0px 12px;
     border: none;
     width: 70%;

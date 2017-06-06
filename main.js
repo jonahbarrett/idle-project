@@ -3,6 +3,8 @@ var wood = 0;
 var stone = 0;
 var iron = 0;
 var lumberjacks = 0;
+var woodRate = lumberjacks;
+var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
 var world = 1;
 
 function sendVal(){
@@ -10,6 +12,9 @@ function sendVal(){
 	document.getElementById("wood").innerHTML = abbrNum(wood,2);
 	document.getElementById("stone").innerHTML = abbrNum(stone,2);
 	document.getElementById("iron").innerHTML = abbrNum(iron,2);
+    document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks,2);
+    document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
+    document.getElementById('woodRate').innerHTML = woodRate;
 }
 
 function mineClick (number){
@@ -25,8 +30,9 @@ function hireLumberjack(){
 		document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks, 2);
 		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
 	};
-	var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
-	document.getElementById('lumberjackCost').innerHTML = abbrNum(nextLumberjackCost, 2);
+	nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
+    document.getElementById('lumberjackCost').innerHTML = abbrNum(nextLumberjackCost,2);
+    console.log(lumberjacks);
 };
 
 
@@ -41,7 +47,10 @@ function save(){
 	  gold: gold,
 	  lumberjacks: lumberjacks,
 	  lumberjackCost: lumberjackCost,
+      woodRate: woodRate,
+      wood: wood,
 	  world: world,
+      
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 };
@@ -49,6 +58,8 @@ function save(){
 function loadGame() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.lumberjacks !== "undefined") lumberjacks = savegame.lumberjacks;
+    if (typeof savegame.wood !== "undefined") wood = savegame.wood;
+    if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
@@ -97,7 +108,7 @@ function abbrNum(number, decPlaces) {
 
 window.setInterval(function(){
 	mineClick(lumberjacks);
-	console.log(nextLumberjackCost);
+    sendVal();
 }, 1000);
 
 window.setInterval(function() {
