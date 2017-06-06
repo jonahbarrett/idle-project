@@ -10,30 +10,30 @@
 
      <div class="HTab">
   <button class="HTablinks" onclick="openHTab(event, 'Resources')" id="defaultOpen">Resources</button>
-  <button class="HTablinks" onclick="openHTab(event, 'Shops')"><span id="gold">0</span> gold</button>
+  <button class="HTablinks" onclick="openHTab(event, 'Shops')"><span id="gold"></span> gold</button>
   <button class="HTablinks" onclick="openHTab(event, 'Land')">Land</button>
   <button class="HTablinks" onclick="openHTab(event, 'Options')">Options</button>
     </div>
 
 	<div id="Resources" class="HTabcontent">
     <div class="VTab">
-      <button class="VTablinks" onclick="openVTab(event, 'Wood')">Wood</button>
-      <button class="VTablinks" onclick="openVTab(event, 'Stone')">Stone</button>
-      <button class="VTablinks" onclick="openVTab(event, 'Iron')">Iron</button>
+      <button class="VTablinks" onclick="openVTab(event, 'Wood')">Wood<span id="wood" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Stone')">Stone<span id="stone" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Iron')">Iron<span id="iron" class="rNum"></span></button>
     </div>
 
-    <div id="Wood" class="VTabcontent" id="defaultOpen">
-      <h3>Wood</h3>
-      <p>me is the capital city of England.</p>
+    <div id="Wood" class="VTabcontent" id="defaultOpen" style= "display: none">
+      <h3>Lumberjacks</h3>
+      <p>Lumberjacks will chop down trees to gather wood for you.</p>
     </div>
 
-    <div id="Stone" class="VTabcontent">
-      <h3>Stone</h3>
+    <div id="Stone" class="VTabcontent" style= "display: none">
+      <h3>Quarriers</h3>
       <p>Paris is the capital of France.</p>
     </div>
 
-    <div id="Iron" class="VTabcontent">
-      <h3>Iron</h3>
+    <div id="Iron" class="VTabcontent" style= "display: none">
+      <h3>Iron Miners</h3>
       <p>Tokyo is the capital of Japan.</p>
     </div>
   </div>
