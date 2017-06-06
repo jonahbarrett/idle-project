@@ -10,7 +10,6 @@ function sendVal(){
 	document.getElementById("wood").innerHTML = abbrNum(wood,2);
 	document.getElementById("stone").innerHTML = abbrNum(stone,2);
 	document.getElementById("iron").innerHTML = abbrNum(iron,2);
-	console.log("sent");
 }
 
 function mineClick (number){
@@ -98,6 +97,7 @@ function abbrNum(number, decPlaces) {
 
 window.setInterval(function(){
 	mineClick(lumberjacks);
+	console.log(nextLumberjackCost);
 }, 1000);
 
 window.setInterval(function() {

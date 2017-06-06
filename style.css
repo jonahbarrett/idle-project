@@ -4,22 +4,25 @@ float: right;
 }
 
 
-.btn {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
+.buyBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+	border: 1px #ccc solid;
   font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #292929;
+	background: white;
+  color: #333;
+  font-size: 18px;
   padding: 10px 20px 10px 20px;
-  border: solid #ffffff 2px;
-  text-decoration: none;
+	width: 100%;
 }
 
-.btn:hover {
-  background: #5e5e5e;
-  text-decoration: none;
+.buyBtn:hover {
+  background: #dedede;
+}
+
+.buyBtn:focus {
+	outline: none;
 }
 
 html, body {
@@ -45,7 +48,7 @@ h1{
 font-size: 85%;
 }
 
-body {font-family: "Arial", sans-serif;}
+body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
 
 /* Style the HTab */
 div.HTab {
@@ -64,7 +67,7 @@ div.HTab button {
     outline: none;
     cursor: pointer;
     padding: 14px 16px;
-    transition: 0.3s;
+
     font-size: 17px;
 		border-bottom: 1px solid;
 		border-bottom-color: #ddd;
@@ -93,8 +96,7 @@ div.HTab button.active {
 .HTabcontent {
     display: none;
     padding: 6px 12px;
-    -webkit-animation: fadeEffect 1s;
-    animation: fadeEffect 1s;
+
 }
 
 /* Fade in HTabs */
@@ -129,7 +131,7 @@ div.VTab button {
     outline: none;
     text-align: left;
     cursor: pointer;
-    transition: 0.3s;
+
 }
 
 /* Change background color of buttons on hover */
