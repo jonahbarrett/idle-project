@@ -1,62 +1,175 @@
-#goldDisplay {
-	margin: left;
-    font-size: 1.2vw;
-    color: white;
-	width: 8%;
-	border-radius: 0px;
-	font-family: Arial;
-	background: #8f9091;
-	padding: 10px 20px 10px 20px;
-	border: solid #ffffff 2px;
-}
+.rNum {
+float: right;
 
-#buyMiners {
-	display: inline-block;
-    font-size: 18px;
-    color: white;
-	width: 8%;
-	border-radius: 0px;
-	font-family: Arial;
-	background: #8f9091;
-	padding: 10px 20px 10px 20px;
-	border: solid #ffffff 2px;
-}
-
-#buyDrills {
-	display: inline-block;
-    font-size: 18px;
-    color: white;
-	width: 8%;
-	border-radius: 0px;
-	font-family: Arial;
-	background: #8f9091;
-	padding: 10px 20px 10px 20px;
-	border: solid #ffffff 2px;
 }
 
 
-.btn {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0px;
+.buyBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+	border: 1px #ccc solid;
   font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #292929;
+	background: white;
+  color: #333;
+  font-size: 18px;
   padding: 10px 20px 10px 20px;
-  border: solid #ffffff 2px;
-  text-decoration: none;
+	width: 100%;
 }
 
-.btn:hover {
-  background: #5e5e5e;
-  text-decoration: none;
+.buyBtn:hover {
+  background: #dedede;
+}
+
+.buyBtn:focus {
+	outline: none;
+}
+
+.sellBtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+	border: 1px #ccc solid;
+  font-family: Arial;
+	background: white;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+	width: 100%;
+}
+
+.sellBtn:hover {
+  background: #dedede;
+}
+
+.sellBtn:focus {
+	outline: none;
 }
 
 html, body {
-	background: #585859;
+	background: white;
 }
 
-#mine{
-align: center;	
+h1{
+	position:relative;
+	min-height: 30px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	font-size: 18px;
+	font-family: "Arial", sans-serif;
+	border-radius: 3px;
+	background-color: #f8f8f8;
+	border-color:#e7e7e7;
+	color: #777;
+	padding: 15px 10px 10px 20px;
+	font-weight: lighter;
+}
+
+#version{
+font-size: 85%;
+}
+
+body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
+
+/* Style the HTab */
+div.HTab {
+	border-collapse: collapse;
+  overflow: hidden;
+	width: 80%;
+	display: inline-block;
+
+}
+
+/* Style the buttons inside the HTab */
+div.HTab button {
+    background-color: inherit;
+    float: left;
+		border:none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+
+    font-size: 17px;
+		border-bottom: 1px solid;
+		border-bottom-color: #ddd;
+}
+
+/* Change background color of buttons on hover */
+div.HTab button:hover {
+    background-color: #F5F5F5;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+
+}
+
+/* Create an active/current HTablink class */
+div.HTab button.active {
+		color:  #ca0f0f;
+		border: 1px solid;
+		border-color: #ddd;
+		border-top-left-radius: 4px;
+		border-top-right-radius: 4px;
+		border-bottom: 0px solid;
+		border-bottom-color: white;
+}
+
+/* Style the HTab content */
+.HTabcontent {
+    display: none;
+    padding: 6px 12px;
+
+}
+
+/* Fade in HTabs */
+@-webkit-keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Style the tab */
+div.VTab {
+	float: left;
+	border-collapse: collapse;
+  overflow: hidden;
+	width: 18.5%;
+}
+
+/* Style the buttons inside the tab */
+div.VTab button {
+    display: block;
+		background: none;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+		border: none;
+    border-bottom: 1px #ddd solid;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+
+}
+
+/* Change background color of buttons on hover */
+div.VTab button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Create an active/current "tab button" class */
+div.VTab button.active {
+    background-color: #f5f5f5;
+}
+
+/* Style the tab content */
+.VTabcontent {
+		float: left;
+		position: relative;
+    padding: 0px 12px;
+    border: none;
+    width: 70%;
+    height: 300px;
 }
