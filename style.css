@@ -1,6 +1,20 @@
 .rNum {
 float: right;
+}
 
+#tutorial {
+  position: relative;
+  background-color: #d9edf7;
+  border: 1px #bce8f1 solid;
+  border-radius: 3px;
+  color: #31708f;
+  text-align: left;
+  font-size: 14px;
+  margin-bottom: 20px;
+  width: 80%;
+  left:10%;
+  padding: 0px 20px 0px 10px;
+  line-height: 30px;
 }
 
 input {
@@ -78,18 +92,21 @@ html, body {
 }
 
 h1{
-	position:relative;
-	min-height: 30px;
-	margin-bottom: 20px;
-	border: 1px solid transparent;
-	font-size: 18px;
-	font-family: "Arial", sans-serif;
-	border-radius: 3px;
-	background-color: #f8f8f8;
-	border-color:#e7e7e7;
-	color: #777;
-	padding: 15px 10px 10px 20px;
-	font-weight: lighter;
+  position: relative;
+  min-height: 30px;
+  margin-bottom: 20px;
+  margin-top: 0px;
+  border: 1px solid transparent;
+  font-size: 18px;
+  font-family: "Arial", sans-serif;
+  border-radius: 3px;
+  background-color: #f8f8f8;
+  border-color: #e7e7e7;
+  color: #777;
+  padding: 15px 10px 10px 20px;
+  font-weight: lighter;
+  width: 80%;
+  left: 10%;
 }
 
 #version{
