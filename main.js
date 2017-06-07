@@ -16,6 +16,7 @@ function sendVal(){
 	document.getElementById("iron").innerHTML = abbrNum(iron,2);
   document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks,2);
   document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
+	woodRate = lumberjacks;
   document.getElementById('woodRate').innerHTML = woodRate;
 	document.getElementById('max').innerHTML = wood;
 	document.getElementById('wAmount').innerHTML = wood;
