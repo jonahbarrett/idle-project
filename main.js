@@ -6,15 +6,28 @@ var lumberjacks = 0;
 var woodRate = lumberjacks;
 var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
 var world = 1;
+var sellAmount = 1;
+var thirdWood = Math.round(wood/3);
 
 function sendVal(){
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
 	document.getElementById("wood").innerHTML = abbrNum(wood,2);
 	document.getElementById("stone").innerHTML = abbrNum(stone,2);
 	document.getElementById("iron").innerHTML = abbrNum(iron,2);
-    document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks,2);
-    document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
-    document.getElementById('woodRate').innerHTML = woodRate;
+  document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks,2);
+  document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
+  document.getElementById('woodRate').innerHTML = woodRate;
+	document.getElementById('max').innerHTML = wood;
+	document.getElementById('wAmount').innerHTML = wood;
+	thirdWood = Math.floor(wood/3);
+	maxWoodGold = Math.floor(wood/2);
+	document.getElementById('maxWoodGold').innerHTML = maxWoodGold;
+	document.getElementById('thirdWood').innerHTML = thirdWood;
+
+}
+
+function isEven(n) {
+  return n == parseFloat(n)? !(n%2) : void 0;
 }
 
 function mineClick (number){
@@ -35,7 +48,16 @@ function hireLumberjack(){
     console.log(lumberjacks);
 };
 
-
+function sellWood(amount){
+	if(wood>2 && isEven(amount)==true){
+			wood = wood - amount;
+			gold = gold + (amount/2);
+		}
+	else if (wood>2 && isEven(amount)==false) {
+			wood = wood - (amount-1);
+			gold = gold + ((amount-1)/2);
+	}
+}
 
 function prettify(input){
     var output = Math.round(input * 1000000)/1000000;
@@ -50,7 +72,7 @@ function save(){
       woodRate: woodRate,
       wood: wood,
 	  world: world,
-      
+
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 };

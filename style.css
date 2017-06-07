@@ -3,6 +3,17 @@ float: right;
 
 }
 
+input {
+width: 20%;
+position: relative;
+min-height: 30px;
+border-radius: 3px;
+border: 1px #ccc solid;
+}
+
+input:focus{
+outline: none;
+}
 
 .buyBtn {
   -webkit-border-radius: 5;
@@ -25,9 +36,11 @@ float: right;
 	outline: none;
 }
 
+
 .sellBtn {
-  -webkit-border-radius: 5;
-  -moz-border-radius: 5;
+float: left;
+  width: 100%;
+  border-collapse: collapse;
   border-radius: 5px;
 	border: 1px #ccc solid;
   font-family: Arial;
@@ -35,7 +48,21 @@ float: right;
   color: #333;
   font-size: 18px;
   padding: 10px 20px 10px 20px;
-	width: 100%;
+	width: 30%;
+}
+
+#sellFirst{
+border-top-right-radius: 0px;
+border-bottom-right-radius: 0px;
+}
+
+#sellThird{
+border-radius: 0px;
+}
+
+#sellMax{
+border-top-left-radius: 0px;
+border-bottom-left-radius: 0px;
 }
 
 .sellBtn:hover {

@@ -53,13 +53,18 @@
     </div>
 
     <div id="Merchants" class="VTabcontent" style= "display: none">
-    
+
     </div>
 
     <div id="Sell" class="VTabcontent" style= "display: none">
-      <p>Sell your wood for 1 gold per 2 wood.
-        <br />
+      <h3>Sell Your Resources</h3>
+      <p>You have <span id="wAmount"></span> wood.</p>
+      <p>Sell your wood for 1 gold per 2 wood.</p>
+      <p>Selling all your wood will give you <span id="maxWoodGold"></span> gold.</p>
+      <br />
       <button class="sellBtn" id="sellFirst" onclick="sellWood(2)">Sell 2</button>
+      <button class="sellBtn" id="sellThird" onclick="sellWood(thirdWood)">Sell <span id="thirdWood"></span></button>
+      <button class="sellBtn" id="sellMax" onclick="sellWood(wood)">Sell <span id="max"></span></button>
     </div>
 </div>
 
