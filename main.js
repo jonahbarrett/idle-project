@@ -5,20 +5,29 @@ var iron = 0;
 var lumberjacks = 0;
 var woodRate = lumberjacks;
 var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
+var nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
 var world = 1;
 var sellAmount = 1;
 var thirdWood = Math.round(wood/3);
 var showTut = 0;
+var merchants = 0;
+var merchRate = 0;
 
 function sendVal(){
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
 	document.getElementById("wood").innerHTML = abbrNum(wood,2);
 	document.getElementById("stone").innerHTML = abbrNum(stone,2);
 	document.getElementById("iron").innerHTML = abbrNum(iron,2);
-  document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks,2);
+	document.getElementById("lumberjacks").innerHTML = lumberjacks;
+	document.getElementById("merchants").innerHTML = merchants;
+	document.getElementById("merchants2").innerHTML = merchants;
+	nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
+	document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
   document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
 	woodRate = lumberjacks;
+	merchRate = 15 * merchants;
   document.getElementById('woodRate').innerHTML = woodRate;
+	document.getElementById('merchRate').innerHTML = merchRate;
 	document.getElementById('max').innerHTML = wood;
 	document.getElementById('wAmount').innerHTML = wood;
 	thirdWood = Math.floor(wood/3);
@@ -50,6 +59,18 @@ function hireLumberjack(){
     console.log(lumberjacks);
 };
 
+function hireMerchant() {
+	var merchantCost = Math.floor(150 * Math.pow(1.3,merchants));
+	if(gold >= merchantCost){
+		merchants = merchants + 1;
+		gold = gold - merchantCost;
+		document.getElementById('merchants').innerHTML = abbrNum(merchants, 2);
+		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
+	};
+	nextMerchantCost = Math.floor(10 * Math.pow(1.2,merchants));
+		document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
+}
+
 function sellWood(amount){
 	if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
@@ -71,6 +92,9 @@ function save(){
 	  gold: gold,
 	  lumberjacks: lumberjacks,
 	  lumberjackCost: lumberjackCost,
+		merchants: merchants,
+		merchantCost: merchantCost,
+		merchRate: merchRate,
     woodRate: woodRate,
     wood: wood,
 	  world: world,
@@ -83,10 +107,13 @@ function save(){
 function loadGame() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.lumberjacks !== "undefined") lumberjacks = savegame.lumberjacks;
+	if (typeof savegame.merchants !== "undefined") merchants = savegame.merchants;
   if (typeof savegame.wood !== "undefined") wood = savegame.wood;
   if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
+	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
+	if (typeof savegame.merchantCost !== "undefined") merchantCost = savegame.merchantCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
 	showTut = savegame.showTut;
 	sendVal();
@@ -132,18 +159,25 @@ function abbrNum(number, decPlaces) {
     return number;
 }
 
-window.setInterval(function(){
+window.setInterval(function() {
 	mineClick(lumberjacks);
-    sendVal();
+  sendVal();
 }, 1000);
 
 window.setInterval(function() {
   save();
 }, 60000);
 
+window.setInterval(function() {
+	merchSell();
+}, 30000);
 
-
-
+function merchSell() {
+	if (wood>0) {
+		wood = wood - 15*merchants;
+		gold = gold + 15*merchants;
+	}
+}
 
 function openHTab(evt, HTabName) {
     var i, HTabcontent, HTablinks;

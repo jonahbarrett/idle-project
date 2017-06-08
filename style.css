@@ -218,6 +218,6 @@ div.VTab button.active {
     height: 300px;
 }
 
-.styled-select:focus {
-  border: none;
+select[name=merchNum]:focus {
+    outline: none;
 }

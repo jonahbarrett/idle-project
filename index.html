@@ -59,16 +59,11 @@
 
     <div id="Merchants" class="VTabcontent" style= "display: none">
       <h3>Hire A Merchant!</h3>
-      <p>Merchants will sell your resources for you, and for more gold</p>
-      <p>Wood: 1 gold per 1 wood</p>
-      <p>Sell
-        <select class="styled-select">
-          <option value="0">none</option>
-          <option value="0.5">50%</option>
-          <option value="0.75">75%</option>
-          <option value="1.0">100%</option>
-        </select>
-        of my resources</p>
+      <p>Merchants will sell some of your resources for you every few seconds, and for more gold than you can.</p>
+      <p>You have <span id="merchants2">0</span> merchants, they will get you <span id="merchRate">0</span> gold every 30 seconds.</p>
+      <p>Your next merchant will cost <span id="merchantCost">150</span> gold to hire.</p>
+      <br />
+      <button class="buyBtn" id="hireMerchant" onclick="hireMerchant()">Hire Merchant</button>
     </div>
 
     <div id="Sell" class="VTabcontent" style= "display: none">
@@ -94,6 +89,20 @@
     <button class="btn" onclick="deleteSave(), location.reload()">Delete Save</button>
   </div>
 </div>
+
+
+
+<!--
+<p>Sell
+<select name="merchNum">
+  <option value="0">none</option>
+  <option value="0.5">50%</option>
+  <option value="0.75">75%</option>
+  <option value="1.0">100%</option>
+</select>
+ of your resources.</p>
+-->
+
 
    <script type="text/javascript" src="main.js"></script>
   </body>
