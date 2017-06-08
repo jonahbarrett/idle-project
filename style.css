@@ -217,3 +217,7 @@ div.VTab button.active {
     width: 70%;
     height: 300px;
 }
+
+.styled-select:focus {
+  border: none;
+}
