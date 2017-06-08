@@ -8,8 +8,9 @@
 
 	<h1>Kingdom Creator <span id="version"> v0.2</span></h1>
   <div id="tutorial">
-    <p>Welcome to Kingdom Creator! Starting with 10 gold, build your own empire. <br />
-      Use your 10 gold to hire a lumberjack.</p>
+    <span id="tutText1">Welcome to Kingdom Creator! Starting with 10 gold, build your own empire.</span>
+      <br />
+    <span id="tutText2">Use your 10 gold to hire a lumberjack.</span>
   </div>
 
      <div class="HTab">
@@ -31,7 +32,7 @@
       <p>Lumberjacks will chop down trees to gather wood for you.</p>
       <p>You have <span id="lumberjacks">0</span> lumberjacks, they gather <span id="woodRate"></span> wood/sec.</p>
       <p>Hiring a lumberjack will cost <span id="lumberjackCost">10</span> gold.</p>
-      <button class="buyBtn" onclick="hireLumberjack()">Hire Lumberjack</button>
+      <button class="buyBtn" onclick="hireLumberjack(), checkTut()">Hire Lumberjack</button>
     </div>
 
     <div id="Stone" class="VTabcontent" style= "display: none">

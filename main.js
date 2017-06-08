@@ -8,6 +8,7 @@ var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
 var world = 1;
 var sellAmount = 1;
 var thirdWood = Math.round(wood/3);
+var showTut = 0;
 
 function sendVal(){
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
@@ -70,9 +71,10 @@ function save(){
 	  gold: gold,
 	  lumberjacks: lumberjacks,
 	  lumberjackCost: lumberjackCost,
-      woodRate: woodRate,
-      wood: wood,
+    woodRate: woodRate,
+    wood: wood,
 	  world: world,
+		showTut: showTut,
 
 	}
 	localStorage.setItem("save",JSON.stringify(save));
@@ -81,11 +83,12 @@ function save(){
 function loadGame() {
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.lumberjacks !== "undefined") lumberjacks = savegame.lumberjacks;
-    if (typeof savegame.wood !== "undefined") wood = savegame.wood;
-    if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
+  if (typeof savegame.wood !== "undefined") wood = savegame.wood;
+  if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
+	showTut = savegame.showTut;
 	sendVal();
 }
 
@@ -177,4 +180,12 @@ function openVTab(evt, VTabName) {
     // Show the current tab, and add an "active" class to the link that opened the tab
     document.getElementById(VTabName).style.display = "block";
     evt.currentTarget.className += " active";
+}
+
+function checkTut(){
+	if (lumberjacks>0 && showTut==0){
+		document.getElementById('tutText1').textContent = "Congratulations! You have your first lumberjack!";
+		document.getElementById('tutText2').textContent = "Sell your wood in the gold tab and buy yourself another lumberjack!";
+		showTut=1;
+	}
 }
