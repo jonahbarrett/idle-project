@@ -12,6 +12,7 @@ var thirdWood = Math.round(wood/3);
 var showTut = 0;
 var merchants = 0;
 var merchRate = 0;
+var firstSell = 0;
 
 function sendVal(){
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
@@ -72,11 +73,12 @@ function hireMerchant() {
 }
 
 function sellWood(amount){
-	if(wood>2 && isEven(amount)==true){
+	if(firstSell==0){
+		firstSell=1;
+	}if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
 			gold = gold + (amount/2);
-		}
-	else if (wood>2 && isEven(amount)==false) {
+		}else if (wood>2 && isEven(amount)==false) {
 			wood = wood - (amount-1);
 			gold = gold + ((amount-1)/2);
 	}
@@ -99,7 +101,7 @@ function save(){
     wood: wood,
 	  world: world,
 		showTut: showTut,
-
+		firstSell: firstSell,
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 };
@@ -116,6 +118,7 @@ function loadGame() {
 	if (typeof savegame.merchantCost !== "undefined") merchantCost = savegame.merchantCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
 	showTut = savegame.showTut;
+	firstSell = savegame.firstSell;
 	sendVal();
 }
 
@@ -221,5 +224,10 @@ function checkTut(){
 		document.getElementById('tutText1').textContent = "Congratulations! You have your first lumberjack!";
 		document.getElementById('tutText2').textContent = "Sell your wood in the gold tab and buy yourself another lumberjack!";
 		showTut=1;
+	}
+	if (firstSell==0 && showTut==1){
+		document.getElementById('tutText1').textContent = "Congratulations! You have succesfully made your first sale!";
+		document.getElementById('tutText2').textContent = "Keep selling your wood and hire a merchant to make even more gold!";
+		showTut=2;
 	}
 }
