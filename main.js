@@ -225,7 +225,7 @@ function checkTut(){
 		document.getElementById('tutText2').textContent = "Sell your wood in the gold tab and buy yourself another lumberjack!";
 		showTut=1;
 	}
-	if (firstSell==0 && showTut==1){
+	if (firstSell==1 && showTut==1){
 		document.getElementById('tutText1').textContent = "Congratulations! You have succesfully made your first sale!";
 		document.getElementById('tutText2').textContent = "Keep selling your wood and hire a merchant to make even more gold!";
 		showTut=2;
