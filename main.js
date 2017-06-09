@@ -11,8 +11,8 @@ var sellAmount = 1;
 var thirdWood = Math.round(wood/3);
 var showTut = 0;
 var merchants = 0;
-var merchRate = 0;
 var firstSell = 0;
+var merchRate = 0;
 
 function sendVal(){
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
@@ -26,9 +26,7 @@ function sendVal(){
 	document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
   document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
 	woodRate = lumberjacks;
-	merchRate = 15 * merchants;
   document.getElementById('woodRate').innerHTML = woodRate;
-	document.getElementById('merchRate').innerHTML = merchRate;
 	document.getElementById('max').innerHTML = wood;
 	document.getElementById('wAmount').innerHTML = wood;
 	thirdWood = Math.floor(wood/3);
@@ -56,8 +54,7 @@ function hireLumberjack(){
 		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
 	};
 	nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
-    document.getElementById('lumberjackCost').innerHTML = abbrNum(nextLumberjackCost,2);
-    console.log(lumberjacks);
+  document.getElementById('lumberjackCost').innerHTML = abbrNum(nextLumberjackCost,2);
 };
 
 function hireMerchant() {
@@ -68,8 +65,8 @@ function hireMerchant() {
 		document.getElementById('merchants').innerHTML = abbrNum(merchants, 2);
 		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
 	};
-	nextMerchantCost = Math.floor(10 * Math.pow(1.2,merchants));
-		document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
+	nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
+	document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
 }
 
 function sellWood(amount){
@@ -82,6 +79,7 @@ function sellWood(amount){
 			wood = wood - (amount-1);
 			gold = gold + ((amount-1)/2);
 	}
+	checkTut();
 }
 
 function prettify(input){
@@ -165,6 +163,7 @@ function abbrNum(number, decPlaces) {
 window.setInterval(function() {
 	mineClick(lumberjacks);
   sendVal();
+		console.log(showTut);
 }, 1000);
 
 window.setInterval(function() {
@@ -173,13 +172,16 @@ window.setInterval(function() {
 
 window.setInterval(function() {
 	merchSell();
-}, 30000);
+}, 3000);
 
 function merchSell() {
-	if (wood>0) {
-		wood = wood - 15*merchants;
-		gold = gold + 15*merchants;
+	var h = 2 * merchants;
+	if (wood>h) {
+		wood = wood - h;
+		gold = gold + h;
+		merchRate = h;
 	}
+	document.getElementById("merchRate").innerHTML = merchRate;
 }
 
 function openHTab(evt, HTabName) {
@@ -220,12 +222,12 @@ function openVTab(evt, VTabName) {
 }
 
 function checkTut(){
-	if (lumberjacks>0 && showTut==0){
+	if (lumberjacks>0 && showTut>=0){
 		document.getElementById('tutText1').textContent = "Congratulations! You have your first lumberjack!";
 		document.getElementById('tutText2').textContent = "Sell your wood in the gold tab and buy yourself another lumberjack!";
 		showTut=1;
 	}
-	if (firstSell==1 && showTut==1){
+	if (firstSell==1 && showTut>=1){
 		document.getElementById('tutText1').textContent = "Congratulations! You have succesfully made your first sale!";
 		document.getElementById('tutText2').textContent = "Keep selling your wood and hire a merchant to make even more gold!";
 		showTut=2;
