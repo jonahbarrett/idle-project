@@ -16,14 +16,14 @@
      <div class="HTab">
   <button class="HTablinks" onclick="openHTab(event, 'Resources')" id="defaultOpen">Resources</button>
   <button class="HTablinks" onclick="openHTab(event, 'sellTab')"><span id="gold"></span> gold</button>
-  <button class="HTablinks" onclick="openHTab(event, 'Land')">Land</button>
+  <button class="HTablinks" id="landTab" style="display: none" onclick="openHTab(event, 'Land')">Land</button>
   <button class="HTablinks" onclick="openHTab(event, 'Options')">Options</button>
     </div>
 
 	<div id="Resources" class="HTabcontent">
     <div class="VTab">
-      <button class="VTablinks" onclick="openVTab(event, 'Iron')">Iron<span id="iron" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Stone')">Stone<span id="stone" class="rNum"></span></button>
+      <button class="VTablinks" style="display: none" onclick="openVTab(event, 'Iron')">Iron<span id="iron" class="rNum"></span></button>
+      <button class="VTablinks" style="display: none" onclick="openVTab(event, 'Stone')">Stone<span id="stone" class="rNum"></span></button>
       <button class="VTablinks" onclick="openVTab(event, 'Wood')">Wood<span id="wood" class="rNum"></span></button>
     </div>
 
@@ -48,12 +48,12 @@
 
 	<div id="sellTab" class="HTabcontent">
     <div class="VTab">
-      <button class="VTablinks" onclick="openVTab(event, 'Shops')">Shops<span id="shops" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Merchants')">Merchants<span id="merchants" class="rNum"></span></button>
+      <button class="VTablinks" style="display: none" onclick="openVTab(event, 'Shops')">Shops<span id="shops" class="rNum"></span></button>
+      <button class="VTablinks" id="merchantTab" style="display: none" onclick="openVTab(event, 'Merchants')">Merchants<span id="merchants" class="rNum"></span></button>
       <button class="VTablinks" onclick="openVTab(event, 'Sell')">Sell<span id="sell" class="rNum"></span></button>
     </div>
 
-    <div id="Shops" class="VTabcontent" id="defaultOpen" style= "display: none">
+    <div id="Shops" class="VTabcontent" style= "display: none">
 
     </div>
 
@@ -63,7 +63,7 @@
       <p>You have <span id="merchants2">0</span> merchants, they will sell <span id="merchRate">0</span> of your wood every 3 seconds.</p>
       <p>Your next merchant will cost <span id="merchantCost">150</span> gold to hire.</p>
       <br />
-      <button class="buyBtn" id="hireMerchant" onclick="hireMerchant()">Hire Merchant</button>
+      <button class="buyBtn" id="hireMerchant" onclick="hireMerchant(), checkTut()">Hire Merchant</button>
     </div>
 
     <div id="Sell" class="VTabcontent" style= "display: none">
@@ -79,8 +79,16 @@
 </div>
 
 	<div id="Land" class="HTabcontent">
-  <h3>Land</h3>
-  <p>You will be able to purchase land here.</p>
+    <div class="VTab">
+      <button class="VTablinks" style="display: none" onclick="openVTab(event, 'Quarters')">Quarters<span id="quarters" class="rNum"></span></button>
+      <button class="VTablinks" id="" style="display: none" onclick="openVTab(event, 'Acres')">Acres<span id="acres" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Plots')">Plots<span id="plots" class="rNum"></span></button>
+    </div>
+
+    <div id="Plots" class="VTabcontent" style= "display: none">
+      <h3>Plots</h3>
+      <p>Buy a plot of land to build a shop on</p>
+    </div>
   </div>
 
 <div id="Options" class="HTabcontent">
