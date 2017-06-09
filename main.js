@@ -75,7 +75,7 @@ function hireMerchant() {
 }
 
 function sellWood(amount){
-	if(firstSell==0){
+	if(gold<10){
 		firstSell=1;
 	}if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
