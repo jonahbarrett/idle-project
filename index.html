@@ -7,9 +7,15 @@
   <body onload="loadGame()">
 
 	<h1>Kingdom Creator <span id="version"> v0.2</span></h1>
+  <div id="tutorial">
+    <span id="tutText1">Welcome to Kingdom Creator! Starting with 10 gold, build your own empire.</span>
+      <br />
+    <span id="tutText2">Use your 10 gold to hire a lumberjack.</span>
+  </div>
 
      <div class="HTab">
-  <button class="HTablinks" onclick="openHTab(event, 'Resources')" id="defaultOpen">Resources</button>
+  <button class="HTablinks" onclick="openHTab(event, 'Resources')" id="defaultOpen"><span id="foodNum"></span> food</button>
+  <button class="HTablinks" onclick="openHTab(event, 'Guys')"><span id="workers">2</span> workers</button>
   <button class="HTablinks" onclick="openHTab(event, 'sellTab')"><span id="gold"></span> gold</button>
   <button class="HTablinks" onclick="openHTab(event, 'Land')">Land</button>
   <button class="HTablinks" onclick="openHTab(event, 'Options')">Options</button>
@@ -17,17 +23,26 @@
 
 	<div id="Resources" class="HTabcontent">
     <div class="VTab">
-      <button class="VTablinks" onclick="openVTab(event, 'Iron')">Iron<span id="iron" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Stone')">Stone<span id="stone" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Wood')">Wood<span id="wood" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Iron')" style="display: none">Iron<span id="iron" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Stone')" style="display: none">Stone<span id="stone" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Wood')" style="display: none">Wood<span id="wood" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Food')">Food<span id="food" class="rNum"></span></button>
+    </div>
+
+    <div id="Food" class="VTabcontent" style="display: none">
+      <h3>Farmers</h3>
+      <p>Farmers will gather food for you.</p>
+      <p>You have <span id="farmers">0</span> farmers, they gather <span id="foodRate"></span> food/sec.</p>
+      <p>Hiring a farmer will cost <span id="farmerCost">10</span> gold and 1 worker.</p>
+      <button class="buyBtn" onclick="hireFarmer(), checkTut()">Hire Farmer</button>
     </div>
 
     <div id="Wood" class="VTabcontent" id="defaultOpen" style= "display: none">
       <h3>Lumberjacks</h3>
       <p>Lumberjacks will chop down trees to gather wood for you.</p>
-      <p>You have <span id="lumberjacks">0</span> lumberjacks, they gather <span id="woodRate">0</span> wood/sec.</p>
-      <p>Buying a lumberjack will cost <span id="lumberjackCost">10</span> gold.</p>
-      <button class="buyBtn" onclick="hireLumberjack()">Hire Lumberjack</button>
+      <p>You have <span id="lumberjacks">0</span> lumberjacks, they gather <span id="woodRate"></span> wood/sec.</p>
+      <p>Hiring a lumberjack will cost <span id="lumberjackCost">10</span> gold and 1 worker.</p>
+      <button class="buyBtn" onclick="hireLumberjack(), checkTut()">Hire Lumberjack</button>
     </div>
 
     <div id="Stone" class="VTabcontent" style= "display: none">
@@ -41,11 +56,25 @@
     </div>
   </div>
 
+  <div id="Guys" class="HTabcontent">
+    <div class="VTab">
+      <button class="VTablinks" onclick="openVTab(event, 'Workers')">Workers<span id="workers2" class="rNum"></span></button>
+    </div>
+
+    <div id="Workers" class="VTabcontent" id="defaultOpen" style= "display: none">
+      <h3>Workers</h3>
+      <p>Hire workers and assign them to different jobs.</p>
+      <p>You have <span id="workers3">0</span> workers.</p>
+      <p>Hiring a worker will cost <span id="workerCost">10</span> gold and <span id="workerFoodCost">5</span> food.</p>
+      <button class="buyBtn" onclick="hireWorker(), checkTut()">Hire Worker</button>
+    </div>
+  </div>
+
 	<div id="sellTab" class="HTabcontent">
     <div class="VTab">
-      <button class="VTablinks" onclick="openVTab(event, 'Shops')">Shops<span id="shops" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Merchants')">Merchants<span id="merchants" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Sell')">Sell<span id="sell" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Shops')" style="display: none">Shops<span id="shops" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Merchants')" style="display: none">Merchants<span id="merchants" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Sell')" style="display: none">Sell<span id="sell" class="rNum"></span></button>
     </div>
 
     <div id="Shops" class="VTabcontent" id="defaultOpen" style= "display: none">
@@ -53,7 +82,12 @@
     </div>
 
     <div id="Merchants" class="VTabcontent" style= "display: none">
-
+      <h3>Hire A Merchant!</h3>
+      <p>Merchants will sell some of your resources for you every few seconds, and for more gold than you can.</p>
+      <p>You have <span id="merchants2">0</span> merchants, they will sell <span id="merchRate">0</span> of your wood every 10 seconds.</p>
+      <p>Your next merchant will cost <span id="merchantCost">150</span> gold to hire.</p>
+      <br />
+      <button class="buyBtn" id="hireMerchant" onclick="hireMerchant()">Hire Merchant</button>
     </div>
 
     <div id="Sell" class="VTabcontent" style= "display: none">
@@ -69,16 +103,33 @@
 </div>
 
 	<div id="Land" class="HTabcontent">
-  <h3>Metal</h3>
-  <p>Mine metal.</p>
+  <h3>Land</h3>
+  <p>You will be able to purchase land here.</p>
   </div>
 
 <div id="Options" class="HTabcontent">
   <div id="saveButtons">
   <button class="btn" onclick="save()">Save</button><br />
-    <button class="btn" onclick="deleteSave()">Delete Save</button>
+    <button class="btn" onclick="deleteSave(), location.reload()">Delete Save</button>
   </div>
 </div>
+
+<div id="disclaimer">
+<p>Disclaimer: This game is unfinished and constantly being updated.
+  If your game is not working you will have to delete your save in the options tab.</p>
+</div>
+
+<!--
+<p>Sell
+<select name="merchNum">
+  <option value="0">none</option>
+  <option value="0.5">50%</option>
+  <option value="0.75">75%</option>
+  <option value="1.0">100%</option>
+</select>
+ of your resources.</p>
+-->
+
 
    <script type="text/javascript" src="main.js"></script>
   </body>
