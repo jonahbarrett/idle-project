@@ -139,15 +139,16 @@ function hireMerchant() {
 }
 
 function sellWood(amount){
-	if(gold<10){
-		firstSell=1;
-	}if(wood>2 && isEven(amount)==true){
+	var resource = document.getElementById("merchNum").value
+	if (resource == 1){
+	if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
 			gold = gold + (amount/2);
 		}else if (wood>2 && isEven(amount)==false) {
 			wood = wood - (amount-1);
 			gold = gold + ((amount-1)/2);
 	}
+}
 	checkTut();
 }
 

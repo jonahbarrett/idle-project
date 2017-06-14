@@ -8,9 +8,9 @@
 
 	<h1>Kingdom Creator <span id="version"> v0.2</span></h1>
   <div id="tutorial">
-    <span id="tutText1">Welcome to Kingdom Creator! Starting with 10 gold, build your own empire.</span>
+    <span id="tutText1">Welcome to Kingdom Creator! Starting with 10 gold, and 2 workers, build your own empire.</span>
       <br />
-    <span id="tutText2">Use your 10 gold to hire a lumberjack.</span>
+    <span id="tutText2">Use your 10 gold to hire some farmers!</span>
   </div>
 
      <div class="HTab">
@@ -74,7 +74,7 @@
     <div class="VTab">
       <button class="VTablinks" onclick="openVTab(event, 'Shops')" style="display: none">Shops<span id="shops" class="rNum"></span></button>
       <button class="VTablinks" onclick="openVTab(event, 'Merchants')" style="display: none">Merchants<span id="merchants" class="rNum"></span></button>
-      <button class="VTablinks" onclick="openVTab(event, 'Sell')" style="display: none">Sell<span id="sell" class="rNum"></span></button>
+      <button class="VTablinks" onclick="openVTab(event, 'Sell')" style="display: block">Sell<span id="sell" class="rNum"></span></button>
     </div>
 
     <div id="Shops" class="VTabcontent" id="defaultOpen" style= "display: none">
@@ -92,13 +92,18 @@
 
     <div id="Sell" class="VTabcontent" style= "display: none">
       <h3>Sell Your Resources</h3>
-      <p>You have <span id="wAmount"></span> wood.</p>
-      <p>Sell your wood for 1 gold per 2 wood.</p>
+      <p>Sell your
+        <select id="merchNum">
+        <option value="0">Food</option>
+        <option value="1">Wood</option>
+        <option value="2">Stone</option>
+        <option value="3">Iron</option>
+      </select> for 1 gold per 2 wood.</p>
       <p>Selling all your wood will give you <span id="maxWoodGold"></span> gold.</p>
       <br />
       <button class="sellBtn" id="sellFirst" onclick="sellWood(2)">Sell 2</button>
-      <button class="sellBtn" id="sellThird" onclick="sellWood(thirdWood)">Sell <span id="thirdWood"></span></button>
-      <button class="sellBtn" id="sellMax" onclick="sellWood(wood)">Sell <span id="max"></span></button>
+      <button class="sellBtn" id="sellThird" onclick="sellWood(thirdResource)">Sell <span id="thirdWood"></span></button>
+      <button class="sellBtn" id="sellMax" onclick="sellWood(max)">Sell <span id="max"></span></button>
     </div>
 </div>
 
