@@ -22,7 +22,10 @@ var nextFarmerCost = Math.floor(10 * Math.pow(1.2,farmers));
 
 var world = 1;
 var sellAmount = 1;
-var thirdWood = Math.round(wood/3);
+var thirdResource2 = Math.floor(wood/3);
+var max2 = food;
+var thirdResource = thirdResource2;
+var max = max2;
 
 var showTut = 0;
 var firstSell = 0;
@@ -30,6 +33,7 @@ var firstMerchant = 0;
 
 function sendVal() {
 	document.getElementById('food').innerHTML = food;
+	document.getElementById('foodNum').innerHTML = food;
 	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
 	document.getElementById("wood").innerHTML = abbrNum(wood,2);
 	document.getElementById("stone").innerHTML = abbrNum(stone,2);
@@ -51,16 +55,13 @@ function sendVal() {
 
 	woodRate = lumberjacks;
 	foodRate = farmers;
+	thirdResource = thirdResource2;
+	max = max2;
 
 	document.getElementById('foodRate').innerHTML = foodRate;
   document.getElementById('woodRate').innerHTML = woodRate;
-	document.getElementById('max').innerHTML = wood;
-	document.getElementById('wAmount').innerHTML = wood;
-	thirdWood = Math.floor(wood/3);
-	maxWoodGold = Math.floor(wood/2);
-	document.getElementById('maxWoodGold').innerHTML = maxWoodGold;
-	document.getElementById('thirdWood').innerHTML = thirdWood;
-	document.getElementById('foodNum').innerHTML = food;
+	document.getElementById('max').innerHTML = max;
+  document.getElementById('thirdResource').innerHTML = thirdResource;
 }
 
 function isEven(n) {
@@ -140,15 +141,29 @@ function hireMerchant() {
 
 function sellWood(amount){
 	var resource = document.getElementById("merchNum").value
+	if (resource == 0){
+		thirdResource2 = Math.floor(wood/3);
+		max2 = wood;
+		if(food>2 && isEven(amount)==true){
+			food = food - amount;
+			gold = gold + (amount/2);
+		}else if (food>2 && isEven(amount)==false) {
+			food = food - (amount-1);
+			gold = gold + ((amount-1)/2);
+		}
+	}
 	if (resource == 1){
-	if(wood>2 && isEven(amount)==true){
+		thirdResource2 = Math.floor(food/3);
+		max2 = food;
+		if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
 			gold = gold + (amount/2);
 		}else if (wood>2 && isEven(amount)==false) {
 			wood = wood - (amount-1);
 			gold = gold + ((amount-1)/2);
+		}
 	}
-}
+	sendVal();
 	checkTut();
 }
 
