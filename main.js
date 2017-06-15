@@ -30,6 +30,7 @@ var max = max2;
 var showTut = 0;
 var firstSell = 0;
 var firstMerchant = 0;
+var resource = document.getElementById("merchNum").value;
 
 function sendVal() {
 	document.getElementById('food').innerHTML = food;
@@ -55,10 +56,16 @@ function sendVal() {
 
 	woodRate = lumberjacks;
 	foodRate = farmers;
-	max2 = food;
-	thirdResource2 = Math.floor(food/3);
 	thirdResource = thirdResource2;
 	max = max2;
+	if (resource == 0){
+		thirdResource2 = Math.floor(food/3);
+		max2 = food;
+	}
+	if (resource == 1){
+		thirdResource2 = Math.floor(wood/3);
+		max2 = wood;
+		}
 
 	document.getElementById('foodRate').innerHTML = foodRate;
   document.getElementById('woodRate').innerHTML = woodRate;
@@ -141,12 +148,15 @@ function hireMerchant() {
 		console.log("did a thing");
 	}
 }
+function pickResource(){
+	resource = document.getElementById("merchNum").value;
+}
 
 function sellWood(amount){
-	var resource = document.getElementById("merchNum").value
+	resource = document.getElementById("merchNum").value
 	if (resource == 0){
-		thirdResource2 = Math.floor(wood/3);
-		max2 = wood;
+		thirdResource2 = Math.floor(food/3);
+		max2 = food;
 		if(food>2 && isEven(amount)==true){
 			food = food - amount;
 			gold = gold + (amount/2);
@@ -156,8 +166,8 @@ function sellWood(amount){
 		}
 	}
 	if (resource == 1){
-		thirdResource2 = Math.floor(food/3);
-		max2 = food;
+		thirdResource2 = Math.floor(wood/3);
+		max2 = wood;
 		if(wood>2 && isEven(amount)==true){
 			wood = wood - amount;
 			gold = gold + (amount/2);

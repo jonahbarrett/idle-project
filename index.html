@@ -93,7 +93,7 @@
     <div id="Sell" class="VTabcontent" style= "display: none">
       <h3>Sell Your Resources</h3>
       <p>Sell your
-        <select id="merchNum">
+        <select id="merchNum" onchange="pickResource(), sendVal()">
         <option value="0">Food</option>
         <option value="1">Wood</option>
         <option value="2">Stone</option>
