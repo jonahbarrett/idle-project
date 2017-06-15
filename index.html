@@ -6,7 +6,7 @@
   </head>
   <body onload="loadGame()">
 
-	<h1>Kingdom Creator <span id="version"> v0.2</span></h1>
+	<h1>Kingdom Creator <span id="version"> v0.3.1</span></h1>
   <div id="tutorial">
     <span id="tutText1">Welcome to Kingdom Creator! Starting with 10 gold, and 2 workers, build your own empire.</span>
       <br />
@@ -99,10 +99,10 @@
         <option value="2">Stone</option>
         <option value="3">Iron</option>
       </select> for 1 gold per 2 food.</p>
-      <p>Selling all your wood will give you <span id="maxWoodGold"></span> gold.</p>
+      <p>Selling all your food will give you <span id="max2"></span> gold.</p>
       <br />
       <button class="sellBtn" id="sellFirst" onclick="sellWood(2)">Sell 2</button>
-      <button class="sellBtn" id="sellThird" onclick="sellWood(thirdResource)">Sell <span id="thirdWood"></span></button>
+      <button class="sellBtn" id="sellThird" onclick="sellWood(thirdResource)">Sell <span id="thirdResource"></span></button>
       <button class="sellBtn" id="sellMax" onclick="sellWood(max)">Sell <span id="max"></span></button>
     </div>
 </div>

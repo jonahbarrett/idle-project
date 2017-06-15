@@ -55,12 +55,15 @@ function sendVal() {
 
 	woodRate = lumberjacks;
 	foodRate = farmers;
+	max2 = food;
+	thirdResource2 = Math.floor(food/3);
 	thirdResource = thirdResource2;
 	max = max2;
 
 	document.getElementById('foodRate').innerHTML = foodRate;
   document.getElementById('woodRate').innerHTML = woodRate;
 	document.getElementById('max').innerHTML = max;
+	document.getElementById('max2').innerHTML = max;
   document.getElementById('thirdResource').innerHTML = thirdResource;
 }
 
