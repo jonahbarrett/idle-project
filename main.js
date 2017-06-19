@@ -271,6 +271,7 @@ function save(){
 
 function loadGame() {
 	$('#saving').hide();
+  $('#givegold').hide();
 	var savegame = JSON.parse(localStorage.getItem("save"));
 	if (typeof savegame.workers !== "undefined") workers = savegame.workers;
 	if (typeof savegame.farmers !== "undefined") farmers = savegame.farmers;
