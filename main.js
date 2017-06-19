@@ -26,6 +26,7 @@
   var merchRate = 0;
 
   var nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
+  var workerFoodCost = 3;
   var nextWorkerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
   var nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
   var nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
@@ -59,7 +60,6 @@ function sendVal() {
 	document.getElementById('workers2').innerHTML = formatNumber(workers);
 	document.getElementById('workers3').innerHTML = formatNumber(workers);
 	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
-	document.getElementById('workerFoodCost').innerHTML = formatNumber(nextWorkerFoodCost);
 	document.getElementById('shops').innerHTML = formatNumber(shops);
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
@@ -87,6 +87,7 @@ function sendVal() {
 		max2 = 50 * wood;
 		document.getElementById('res').innerHTML = "wood";
 		document.getElementById('res2').innerHTML = "wood";
+    $()
 		document.getElementById("resAmt").innerHTML = "50 gold per";
 		}
 
@@ -121,7 +122,6 @@ function upgradeEquipment (){
 
 function hireWorker (){
 	var workerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
-	var workerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
 	if(gold >= workerCost && food >= workerFoodCost){
 		workers = workers + 1;
 		totalWorkers = totalWorkers + 1;
@@ -133,9 +133,7 @@ function hireWorker (){
 		document.getElementById('gold').innerHTML = formatNumber(gold);
 	}
 	nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
-	workerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
 	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
-	document.getElementById('workerFoodCost').innerHTML = formatNumber(nextWorkerFoodCost);
 }
 
 function hireFarmer(){
