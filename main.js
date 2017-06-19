@@ -84,7 +84,7 @@ function sendVal() {
 	}
 	if (resource == 1){
 		thirdResource2 = Math.floor(wood/3);
-		max2 = wood;
+		max2 = 50 * wood;
 		document.getElementById('res').innerHTML = "wood";
 		document.getElementById('res2').innerHTML = "wood";
 		document.getElementById("resAmt").innerHTML = "50 gold per";
@@ -187,13 +187,13 @@ function pickResource(){
 
 function sellRes(amount){
 	resource = document.getElementById("merchNum").value
-	if (resource == 0){
+	if (resource == 0 && food >= amount){
 		thirdResource2 = Math.floor(food/3);
 		max2 = food;
 			food = food - amount;
 			gold = gold + amount;
 	}
-	if (resource == 1){
+	if (resource == 1 && wood >= amount){
 		thirdResource2 = Math.floor(wood/3);
 		max2 = wood * 50;
 			wood = wood - amount;
