@@ -26,7 +26,6 @@
   var merchRate = 0;
 
   var nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
-  var workerFoodCost = 3;
   var nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
   var nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
   var nextFarmerCost = Math.floor(10 * Math.pow(farmX, farmers));
@@ -126,11 +125,11 @@ function upgradeEquipment (){
 
 function hireWorker (){
 	var workerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
-	if(gold >= workerCost && food >= workerFoodCost){
+	if(gold >= workerCost && food >= 3){
 		workers = workers + 1;
 		totalWorkers = totalWorkers + 1;
 		gold = gold - workerCost;
-		food = food - workerFoodCost;
+		food = food - 3;
 		document.getElementById('workers').innerHTML = formatNumber(workers);
 		document.getElementById('workers2').innerHTML = formatNumber(workers);
 		document.getElementById('workers3').innerHTML = formatNumber(workers);
@@ -235,7 +234,6 @@ function save(){
 		workers: workers,
 		farmers: farmers,
 		workerCost: workerCost,
-		workerFoodCost: workerFoodCost,
 	  lumberjacks: lumberjacks,
 	  lumberjackCost: lumberjackCost,
 		merchants: merchants,
@@ -271,7 +269,6 @@ function loadGame() {
 	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.workerCost !== "undefined") workerCost = savegame.workerCost;
-	if (typeof savegame.workerFoodCost !== "undefined") workerFoodCost = savegame.workerFoodCost;
 	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
 	if (typeof savegame.merchantCost !== "undefined") merchantCost = savegame.merchantCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
