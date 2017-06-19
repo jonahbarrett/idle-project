@@ -74,27 +74,31 @@ function sendVal() {
 	woodRate = lumberjacks;
 	foodRate = farmers * (equipmentLevel + 1);
 	thirdResource = thirdResource2;
-	max = max2;
 	if (resource == 0){
 		thirdResource2 = Math.floor(food/3);
+    max = food;
 		max2 = food;
 		document.getElementById('res').innerHTML = "food";
 		document.getElementById('res2').innerHTML = "food";
 		document.getElementById("resAmt").innerHTML = "1 gold per ";
+    $('#woodTotal').html(max);
+    $('#wood2').html( "food.");
 	}
 	if (resource == 1){
 		thirdResource2 = Math.floor(wood/3);
+    max = wood;
 		max2 = 50 * wood;
 		document.getElementById('res').innerHTML = "wood";
 		document.getElementById('res2').innerHTML = "wood";
-    $()
 		document.getElementById("resAmt").innerHTML = "50 gold per";
+    $('#woodTotal').html(max);
+    $('#wood2').html( "wood.");
 		}
 
 	document.getElementById('foodRate').innerHTML = formatNumber(foodRate);
   document.getElementById('woodRate').innerHTML = formatNumber(woodRate);
 	document.getElementById('max').innerHTML = formatNumber(max);
-	document.getElementById('max2').innerHTML = formatNumber(max/2);
+	document.getElementById('max2').innerHTML = formatNumber(max2);
   document.getElementById('thirdResource').innerHTML = formatNumber(thirdResource);
 }
 

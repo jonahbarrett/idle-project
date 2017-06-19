@@ -1,6 +1,10 @@
 .upgrade {
 }
 
+html {
+  overflow-y: scroll;
+}
+
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
