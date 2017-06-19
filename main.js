@@ -204,7 +204,7 @@ function sellRes(amount){
 	checkTut();
 }
 
-function merchSell() {
+function merchSell(amount) {
 	var h = merchants;
   if (food >= amount){
   food = food - amount;
@@ -213,8 +213,9 @@ function merchSell() {
   if (wood >= amount){
   wood = wood - amount;
   gold = gold + (amount*50);
+  console.log('soldWood');
 }
-	document.getElementById("merchRate").innerHTML = merchRate;
+	document.getElementById("merchRate").innerHTML = h;
 }
 
 function prettify(input){
@@ -314,7 +315,7 @@ window.setInterval(function() {
 }, 300000);
 
 window.setInterval(function() {
-	merchSell();
+	merchSell(merchants);
 }, 3000);
 
 function openHTab(evt, HTabName) {
