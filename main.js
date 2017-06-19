@@ -398,6 +398,6 @@ function checkTut(){
 	}
 }
 function giveGold(){
-	gold = 1000000
-	workers = 10000
+	gold = gold + 1000000
+	workers = workers + 10000
 }
