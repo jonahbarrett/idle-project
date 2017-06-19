@@ -396,3 +396,7 @@ function checkTut(){
 		showTut=4;
 	}
 }
+function giveGold(){
+	gold = 1000000
+	workers = 10000
+}
