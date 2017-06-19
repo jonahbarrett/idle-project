@@ -1,10 +1,6 @@
 .upgrade {
 }
 
-html {
-  overflow-y: scroll;
-}
-
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -243,6 +239,34 @@ div.VTab button.active {
     background-color: #f5f5f5;
 }
 
+html {
+  overflow-y: auto;
+}
+
+#close {
+  position: absolute;
+top: 1px;
+right: 1;
+background: #f1f1f1;
+border: 0px solid #bfbfbf;
+border-radius: 50%;
+color: #ca0f0f;
+font-size: 15px;
+text-align: -webkit-center;
+padding-bottom: 3px;
+padding-left: 7px;
+padding-right: 6px;
+}
+
+#close:hover {
+  background: #ca0f0f;
+  color: white;
+}
+
+#close:focus {
+  outline: none;
+}
+
 /* Style the tab content */
 .VTabcontent {
 		float: left;
@@ -250,7 +274,7 @@ div.VTab button.active {
     padding: 0px 12px;
     border: none;
     width: 70%;
-    height: 300px;
+    height: 500px;
 }
 
 #merchNum:focus {
