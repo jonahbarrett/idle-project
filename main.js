@@ -206,9 +206,11 @@ function sellRes(amount){
 
 function merchSell() {
 	var h = merchants;
-  if (food >= amount && wood >= amount){
+  if (food >= amount){
   food = food - amount;
   gold = gold + amount;
+}
+  if (wood >= amount){
   wood = wood - amount;
   gold = gold + (amount*50);
 }
