@@ -27,7 +27,6 @@
 
   var nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
   var workerFoodCost = 3;
-  var nextWorkerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
   var nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
   var nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
   var nextFarmerCost = Math.floor(10 * Math.pow(farmX, farmers));
@@ -52,6 +51,7 @@ function sendVal() {
 	document.getElementById("stone").innerHTML = formatNumber(stone);
 	document.getElementById("iron").innerHTML = formatNumber(iron);
 
+  nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
 	document.getElementById("farmers").innerHTML = formatNumber(farmers);
 	document.getElementById("lumberjacks").innerHTML = formatNumber(lumberjacks);
 	document.getElementById("merchants").innerHTML = formatNumber(merchants);
@@ -206,11 +206,12 @@ function sellRes(amount){
 
 function merchSell() {
 	var h = merchants;
-	if (food>h) {
-		food = food - h;
-		gold = gold + 2*h;
-		merchRate = h;
-	}
+  if (food >= amount && wood >= amount){
+  food = food - amount;
+  gold = gold + amount;
+  wood = wood - amount;
+  gold = gold + (amount*50);
+}
 	document.getElementById("merchRate").innerHTML = merchRate;
 }
 
