@@ -20,6 +20,9 @@
 	var equipmentLevel = 0;
 	var equipmentCost = 0;
 	var nextEquipmentCost = Math.floor(1000 * Math.pow(1.3,equipmentLevel));
+  var axesLevel = 0;
+	var axesCost = 0;
+	var nextAxesCost = Math.floor(10000 * Math.pow(1.3,axesLevel));
 
   var foodRate = farmers * (equipmentLevel + 1);
   var woodRate = lumberjacks;
@@ -70,6 +73,8 @@ function sendVal() {
 	$('#equipmentLevel').html(equipmentLevel);
 	$('#equipmentCost').html(nextEquipmentCost);
 
+  nextAxesCost = Math.floor(10000 * Math.pow(1.3,axesLevel));
+
 	woodRate = lumberjacks;
 	foodRate = farmers * (equipmentLevel + 1);
 	thirdResource = thirdResource2;
@@ -113,6 +118,15 @@ function farm (number){
 	food = food + (number * (equipmentLevel + 1));
   };
 
+function upgradeAxes (){
+  	axesCost = Math.floor(10000 * Math.pow(1.3, axesLevel));
+  	if(gold >= equipmentCost) {
+  		axesLevel = axesLevel + 1;
+  		gold = gold - axesCost;
+  	}
+  	nextAxesCost = Math.floor(10000 * Math.pow(1.3, axesLevel));
+  	document.getElementById('axesCost').innerHTML = formatNumber(nextAxesCost);
+}
 function upgradeEquipment (){
 	equipmentCost = Math.floor(1000 * Math.pow(1.3, equipmentLevel));
 	if(gold >= equipmentCost) {
