@@ -1,100 +1,235 @@
-var gold = 10;
-var wood = 0;
-var stone = 0;
-var iron = 0;
-var lumberjacks = 0;
-var woodRate = lumberjacks;
-var nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
-var nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
-var world = 1;
-var sellAmount = 1;
-var thirdWood = Math.round(wood/3);
-var showTut = 0;
-var merchants = 0;
-var firstSell = 0;
-var merchRate = 0;
-var firstMerchant = 0;
+  var merchX = 1.2;
+	var workerX = 1.1;
+	var farmX = 1.1;
+	var lumberX = 1.1;
+	var equipmentX = 1.3;
 
-function sendVal(){
-	document.getElementById("gold").innerHTML = abbrNum(gold,2 );
-	document.getElementById("wood").innerHTML = abbrNum(wood,2);
-	document.getElementById("stone").innerHTML = abbrNum(stone,2);
-	document.getElementById("iron").innerHTML = abbrNum(iron,2);
-	document.getElementById("lumberjacks").innerHTML = lumberjacks;
-	document.getElementById("merchants").innerHTML = merchants;
-	document.getElementById("merchants2").innerHTML = merchants;
-	nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
-	document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
-  document.getElementById('lumberjackCost').innerHTML = abbrNum(Math.floor(10 * Math.pow(1.2,lumberjacks)),2);
+	var gold = 21;
+  var food = 0;
+  var wood = 0;
+  var stone = 0;
+  var iron = 0;
+
+  var workers = 2;
+  var totalWorkers = 0;
+  var farmers = 0;
+  var lumberjacks = 0;
+  var merchants = 0;
+  var shops = 0;
+
+	var equipmentLevel = 0;
+	var equipmentCost = 0;
+	var nextEquipmentCost = Math.floor(1000 * Math.pow(1.3,equipmentLevel));
+
+  var foodRate = farmers * (equipmentLevel + 1);
+  var woodRate = lumberjacks;
+  var merchRate = 0;
+
+  var nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
+  var nextWorkerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
+  var nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
+  var nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+  var nextFarmerCost = Math.floor(10 * Math.pow(farmX, farmers));
+
+  var world = 1;
+  var sellAmount = 1;
+  var thirdResource2 = Math.floor(wood/3);
+  var max2 = food;
+  var thirdResource = thirdResource2;
+  var max = max2;
+
+  var showTut = 0;
+  var firstSell = 0;
+  var firstMerchant = 0;
+  var resource = document.getElementById("merchNum").value;
+
+function sendVal() {
+	document.getElementById('food').innerHTML = formatNumber(food);
+	document.getElementById('foodNum').innerHTML = formatNumber(food);
+	document.getElementById("gold").innerHTML = formatNumber(gold);
+	document.getElementById("wood").innerHTML = formatNumber(wood);
+	document.getElementById("stone").innerHTML = formatNumber(stone);
+	document.getElementById("iron").innerHTML = formatNumber(iron);
+
+	document.getElementById("farmers").innerHTML = formatNumber(farmers);
+	document.getElementById("lumberjacks").innerHTML = formatNumber(lumberjacks);
+	document.getElementById("merchants").innerHTML = formatNumber(merchants);
+	document.getElementById("merchants2").innerHTML = formatNumber(merchants);
+	document.getElementById('workers').innerHTML = formatNumber(workers);
+	document.getElementById('workers2').innerHTML = formatNumber(workers);
+	document.getElementById('workers3').innerHTML = formatNumber(workers);
+	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
+	document.getElementById('workerFoodCost').innerHTML = formatNumber(nextWorkerFoodCost);
+	document.getElementById('shops').innerHTML = formatNumber(shops);
+
+	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
+  document.getElementById('lumberjackCost').innerHTML = formatNumber(Math.floor(1500 * Math.pow(lumberX, lumberjacks)));
+	document.getElementById('farmerCost').innerHTML = formatNumber(Math.floor(10 * Math.pow(farmX, farmers)));
+
+	nextEquipmentCost = formatNumber(Math.floor(1000 * Math.pow(equipmentX, equipmentLevel)));
+	$('#equipmentLevel').html(equipmentLevel);
+	$('#equipmentCost').html(nextEquipmentCost);
+
 	woodRate = lumberjacks;
-  document.getElementById('woodRate').innerHTML = woodRate;
-	document.getElementById('max').innerHTML = wood;
-	document.getElementById('wAmount').innerHTML = wood;
-	thirdWood = Math.floor(wood/3);
-	maxWoodGold = Math.floor(wood/2);
-	document.getElementById('maxWoodGold').innerHTML = maxWoodGold;
-	document.getElementById('thirdWood').innerHTML = thirdWood;
+	foodRate = farmers * (equipmentLevel + 1);
+	thirdResource = thirdResource2;
+	max = max2;
+	if (resource == 0){
+		thirdResource2 = Math.floor(food/3);
+		max2 = food;
+		document.getElementById('res').innerHTML = "food";
+		document.getElementById('res2').innerHTML = "food";
+		document.getElementById("resAmt").innerHTML = "1 gold per ";
+	}
+	if (resource == 1){
+		thirdResource2 = Math.floor(wood/3);
+		max2 = wood;
+		document.getElementById('res').innerHTML = "wood";
+		document.getElementById('res2').innerHTML = "wood";
+		document.getElementById("resAmt").innerHTML = "50 gold per";
+		}
 
+	document.getElementById('foodRate').innerHTML = formatNumber(foodRate);
+  document.getElementById('woodRate').innerHTML = formatNumber(woodRate);
+	document.getElementById('max').innerHTML = formatNumber(max);
+	document.getElementById('max2').innerHTML = formatNumber(max/2);
+  document.getElementById('thirdResource').innerHTML = formatNumber(thirdResource);
 }
 
 function isEven(n) {
   return n == parseFloat(n)? !(n%2) : void 0;
 }
 
-function mineClick (number){
+function woodChop (number){
 	wood = wood + number;
-	sendVal();
 	};
 
-function hireLumberjack(){
-	var lumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
-	if(gold >= lumberjackCost){
-		lumberjacks = lumberjacks + 1;
-		gold = gold - lumberjackCost;
-		document.getElementById('lumberjacks').innerHTML = abbrNum(lumberjacks, 2);
-		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
+function farm (number){
+	food = food + (number * (equipmentLevel + 1));
+  };
+
+function upgradeEquipment (){
+	equipmentCost = Math.floor(1000 * Math.pow(1.3, equipmentLevel));
+	if(gold >= equipmentCost) {
+		equipmentLevel = equipmentLevel + 1;
+		gold = gold - equipmentCost;
+	}
+	nextEquipmentCost = Math.floor(1000 * Math.pow(1.3, equipmentLevel));
+	document.getElementById('equipmentCost').innerHTML = formatNumber(nextEquipmentCost);
+}
+
+function hireWorker (){
+	var workerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
+	var workerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
+	if(gold >= workerCost && food >= workerFoodCost){
+		workers = workers + 1;
+		totalWorkers = totalWorkers + 1;
+		gold = gold - workerCost;
+		food = food - workerFoodCost;
+		document.getElementById('workers').innerHTML = formatNumber(workers);
+		document.getElementById('workers2').innerHTML = formatNumber(workers);
+		document.getElementById('workers3').innerHTML = formatNumber(workers);
+		document.getElementById('gold').innerHTML = formatNumber(gold);
+	}
+	nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
+	workerFoodCost = Math.floor(3 * Math.pow(workerX, totalWorkers));
+	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
+	document.getElementById('workerFoodCost').innerHTML = formatNumber(nextWorkerFoodCost);
+}
+
+function hireFarmer(){
+	var farmerCost = Math.floor(10 * Math.pow(farmX, farmers));
+	if(gold >= farmerCost && workers >= 1){
+		farmers = farmers + 1;
+		workers = workers - 1;
+		gold = gold - farmerCost;
+		document.getElementById('farmers').innerHTML = formatNumber(farmers);
+		document.getElementById('workers').innerHTML = formatNumber(workers);
+		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
-	nextLumberjackCost = Math.floor(10 * Math.pow(1.2,lumberjacks));
-  document.getElementById('lumberjackCost').innerHTML = abbrNum(nextLumberjackCost,2);
+	nextFarmerCost = Math.floor(10 * Math.pow(farmX, farmers));
+  document.getElementById('farmerCost').innerHTML = formatNumber(nextFarmerCost);
+};
+
+function hireLumberjack(){
+	var lumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
+	if(gold >= lumberjackCost && workers >= 1){
+		lumberjacks = lumberjacks + 1;
+		workers = workers - 1;
+		gold = gold - lumberjackCost;
+		document.getElementById('lumberjacks').innerHTML = formatNumber(lumberjacks);
+		document.getElementById('workers').innerHTML = formatNumber(workers);
+		document.getElementById('gold').innerHTML = formatNumber(gold);
+	};
+	nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
+  document.getElementById('lumberjackCost').innerHTML = formatNumber(nextLumberjackCost);
 };
 
 function hireMerchant() {
-	var merchantCost = Math.floor(150 * Math.pow(1.3,merchants));
-	if(gold >= merchantCost){
+	var merchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+	if(gold >= merchantCost && workers>= 1){
 		merchants = merchants + 1;
+		workers = workers - 1;
 		gold = gold - merchantCost;
-		document.getElementById('merchants').innerHTML = abbrNum(merchants, 2);
-		document.getElementById('gold').innerHTML = abbrNum(gold, 2);
+		document.getElementById('merchants').innerHTML = formatNumber(merchants);
+		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
-	nextMerchantCost = Math.floor(150 * Math.pow(1.3,merchants));
-	document.getElementById('merchantCost').innerHTML = abbrNum(nextMerchantCost,2);
+	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
 	if(merchants>0){
 		firstMerchant = 1;
-		console.log("did a thing");
 	}
 }
+function pickResource(){
+	resource = document.getElementById("merchNum").value;
+}
 
-function sellWood(amount){
-	if(gold<10){
-		firstSell=1;
-	}if(wood>2 && isEven(amount)==true){
-			wood = wood - amount;
-			gold = gold + (amount/2);
-		}else if (wood>2 && isEven(amount)==false) {
-			wood = wood - (amount-1);
-			gold = gold + ((amount-1)/2);
+function sellRes(amount){
+	resource = document.getElementById("merchNum").value
+	if (resource == 0){
+		thirdResource2 = Math.floor(food/3);
+		max2 = food;
+			food = food - amount;
+			gold = gold + amount;
 	}
+	if (resource == 1){
+		thirdResource2 = Math.floor(wood/3);
+		max2 = wood * 50;
+			wood = wood - amount;
+			gold = gold + (amount*50);
+	}
+	if(firstSell == 0){
+		firstSell=1;
+	}
+	sendVal();
 	checkTut();
 }
 
+function merchSell() {
+	var h = merchants;
+	if (food>h) {
+		food = food - h;
+		gold = gold + 2*h;
+		merchRate = h;
+	}
+	document.getElementById("merchRate").innerHTML = merchRate;
+}
+
 function prettify(input){
-    var output = Math.round(input * 1000000)/1000000;
+  var output = Math.round(input * 1000000)/1000000;
 	return output;
 }
 
 function save(){
 	var save = {
 	  gold: gold,
+		food: food,
+		foodRate: foodRate,
+		workers: workers,
+		farmers: farmers,
+		workerCost: workerCost,
+		workerFoodCost: workerFoodCost,
 	  lumberjacks: lumberjacks,
 	  lumberjackCost: lumberjackCost,
 		merchants: merchants,
@@ -106,24 +241,41 @@ function save(){
 		showTut: showTut,
 		firstSell: firstSell,
 		firstMerchant: firstMerchant,
+		totalWorkers: totalWorkers,
+		equipmentLevel: equipmentLevel,
+		equipmentCost: equipmentCost,
+		nextEquipmentCost: nextEquipmentCost,
 	}
 	localStorage.setItem("save",JSON.stringify(save));
+	$('#saving').html("Game Saved").fadeIn('slow');
+	$('#saving').delay('2000').fadeOut('slow');
 };
 
 function loadGame() {
+	$('#saving').hide();
 	var savegame = JSON.parse(localStorage.getItem("save"));
+	if (typeof savegame.workers !== "undefined") workers = savegame.workers;
+	if (typeof savegame.farmers !== "undefined") farmers = savegame.farmers;
+  if (typeof savegame.food !== "undefined") food = savegame.food;
+  if (typeof savegame.foodRate !== "undefined") foodRate = savegame.foodRate;
 	if (typeof savegame.lumberjacks !== "undefined") lumberjacks = savegame.lumberjacks;
 	if (typeof savegame.merchants !== "undefined") merchants = savegame.merchants;
   if (typeof savegame.wood !== "undefined") wood = savegame.wood;
   if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
 	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
+	if (typeof savegame.workerCost !== "undefined") workerCost = savegame.workerCost;
+	if (typeof savegame.workerFoodCost !== "undefined") workerFoodCost = savegame.workerFoodCost;
 	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
 	if (typeof savegame.merchantCost !== "undefined") merchantCost = savegame.merchantCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
 	showTut = savegame.showTut;
 	firstSell = savegame.firstSell;
 	firstMerchant = savegame.firstMerchant;
+	totalWorkers = savegame.totalWorkers;
+	equipmentLevel = savegame.equipmentLevel;
+	equipmentCost = savegame.equipmentCost;
+	nextEquipmentCost = savegame.nextEquipmentCost;
 	sendVal();
 	checkTut();
 }
@@ -132,64 +284,37 @@ function deleteSave() {
 	localStorage.removeItem("save")
 }
 
-function abbrNum(number, decPlaces) {
-    // 2 decimal places => 100, 3 => 1000, etc
-    decPlaces = Math.pow(10,decPlaces);
+var ranges = [
+  { divider: 1e18 , suffix: 'P' },
+  { divider: 1e15 , suffix: 'E' },
+  { divider: 1e12 , suffix: 'T' },
+  { divider: 1e9 , suffix: 'G' },
+  { divider: 1e6 , suffix: 'M' },
+  { divider: 1e3 , suffix: 'k' }
+];
 
-    // Enumerate number abbreviations
-    var abbrev = [ "k", "m", "b", "t" ];
-
-    // Go through the array backwards, so we do the largest first
-    for (var i=abbrev.lumberjack-1; i>=0; i--) {
-
-        // Convert array index to "1000", "1000000", etc
-        var size = Math.pow(10,(i+1)*3);
-
-        // If the number is bigger or equal do the abbreviation
-        if(size <= number) {
-             // Here, we multiply by decPlaces, round, and then divide by decPlaces.
-             // This gives us nice rounding to a particular decimal place.
-             number = Math.round(number*decPlaces/size)/decPlaces;
-
-             // Handle special case where we round up to the next abbreviation
-             if((number == 1000) && (i < abbrev.length - 1)) {
-                 number = 1;
-                 i++;
-             }
-
-             // Add the letter for the abbreviation
-             number += abbrev[i];
-
-             // We are done... stop
-             break;
-        }
+function formatNumber(n) {
+  for (var i = 0; i < ranges.length; i++) {
+    if (n >= ranges[i].divider) {
+      return (n / ranges[i].divider).toFixed(2) + ranges[i].suffix;
     }
-
-    return number;
+  }
+  return n.toFixed();
 }
 
 window.setInterval(function() {
-	mineClick(lumberjacks);
+	woodChop(lumberjacks);
+	farm(farmers);
   sendVal();
 }, 1000);
 
 window.setInterval(function() {
   save();
-}, 60000);
+}, 300000);
 
 window.setInterval(function() {
 	merchSell();
 }, 3000);
-
-function merchSell() {
-	var h = 2 * merchants;
-	if (wood>h) {
-		wood = wood - h;
-		gold = gold + h;
-		merchRate = h;
-	}
-	document.getElementById("merchRate").innerHTML = merchRate;
-}
 
 function openHTab(evt, HTabName) {
     var i, HTabcontent, HTablinks;
@@ -229,21 +354,31 @@ function openVTab(evt, VTabName) {
 }
 
 function checkTut(){
-	if (lumberjacks>0 && showTut>=0){
-		document.getElementById('tutText1').textContent = "Congratulations! You have your first lumberjack!";
-		document.getElementById('tutText2').textContent = "Sell your wood in the gold tab and buy yourself another lumberjack!";
-		showTut=1;
-	}
-	if (firstSell==1 && showTut>=1){
-		document.getElementById('tutText1').textContent = "Congratulations! You have succesfully made your first sale!";
-		document.getElementById('tutText2').textContent = "Keep selling your wood and hire a merchant to make even more gold!";
+	if (farmers>1 && showTut>=0){
+			document.getElementById('tutText1').textContent = "Congratulations! You have your first farmers!";
+			document.getElementById('tutText2').textContent = "Sell some food to hire more workers.";
+			showTut=1;
+			if (gold == 0){
+				gold = 10;
+			}
+		}
+
+	if (firstSell==1 && totalWorkers>=4 && showTut>=1){
+		document.getElementById('tutText1').textContent = "Congratulations! You have made your first few sales and hired more workers!";
+		document.getElementById('tutText2').textContent = "Keep selling your food and hire a merchant to make sales for you!";
 		document.getElementById("merchantTab").style.display = "inherit";
 		showTut=2;
 	}
 	if (firstMerchant==1 && showTut>=2){
-		document.getElementById('tutText1').textContent = "Congratulations! You have a merchant! Next you need a shop.";
-		document.getElementById('tutText2').textContent = "Before you can build a shop, you need to buy a plot to build it on.";
-		document.getElementById("landTab").style.display = "inherit";
+		document.getElementById('tutText1').textContent = "Congratulations! You have a merchant!";
+		document.getElementById('tutText2').textContent = "Your farmers could use some new equipment, upgrade it to speed them up!";
+		document.getElementById("farmerUpgrade").style.display = "inherit";
 		showTut=3;
+	}
+	if (equipmentLevel>=3 && showTut>=3){
+		document.getElementById('tutText1').textContent = "Wow! Your kingdom is off to a great start!";
+		document.getElementById('tutText2').textContent = "It looks like it is time to hire a lumberjack!";
+		document.getElementById("woodTab").style.display = "inherit";
+		showTut=4;
 	}
 }

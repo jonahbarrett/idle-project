@@ -1,3 +1,30 @@
+.upgrade {
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+}
+
+h2{
+  font-weight: 500;
+  font-size: 18px;
+}
+
+h3{
+  color: #337ab7;
+  font-size: 20px;
+}
+
 .rNum {
 float: right;
 }
@@ -52,7 +79,7 @@ outline: none;
 
 
 .sellBtn {
-float: left;
+  float: left;
   width: 100%;
   border-collapse: collapse;
   border-radius: 5px;
@@ -113,7 +140,11 @@ h1{
 font-size: 85%;
 }
 
-body {font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;}
+body {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  color: #333;
+}
 
 /* Style the HTab */
 div.HTab {
@@ -218,6 +249,50 @@ div.VTab button.active {
     height: 300px;
 }
 
-select[name=merchNum]:focus {
+#merchNum:focus {
     outline: none;
+}
+
+#saving {
+    color: #31708f;
+    position: absolute;
+    bottom: 5%;
+    left: 10%;
+    background-color: #d9edf7;
+    text-align: center;
+    width: 100px;
+    padding: 10px 2px;
+    border: 1px #bce8f1 solid;
+    border-radius: 4px;
+}
+
+#disclaimer {
+    color:red;
+    position: absolute;
+    bottom: 5;
+    padding: 5px 0px 0px 0px;
+    left: 10%;
+    background-color: #f1f1f1;
+    border: 1px solid #bfbfbf;
+    text-align: center;
+    width: 80%;
+    border-radius: 4px;
+}
+
+.btn {
+  border-radius: 5px;
+	border: 1px #ccc solid;
+  font-family: Arial;
+	background: white;
+  color: #333;
+  font-size: 18px;
+  padding: 10px 20px 10px 20px;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:hover {
+  background: #dedede;
 }
