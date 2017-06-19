@@ -358,9 +358,6 @@ function checkTut(){
 			document.getElementById('tutText1').textContent = "Congratulations! You have your first farmers!";
 			document.getElementById('tutText2').textContent = "Sell some food to hire more workers.";
 			showTut=1;
-			if (gold == 0){
-				gold = 10;
-			}
 		}
 
 	if (firstSell==1 && totalWorkers>=4 && showTut>=1){
