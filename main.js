@@ -10,9 +10,9 @@
   var stone = 0;
   var iron = 0;
 
-	var House = 0;
+	var house = 0;
 	var HouseX = 1.1;
-	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
+	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, house));
   var houseRate = house;
 
 
@@ -59,7 +59,7 @@ function sendVal() {
 	document.getElementById("wood").innerHTML = formatNumber(wood);
 	document.getElementById("stone").innerHTML = formatNumber(stone);
 	document.getElementById("iron").innerHTML = formatNumber(iron);
-	document.getElementById("House").innerHTML = formatNumber(House);
+	document.getElementById("House").innerHTML = formatNumber(house);
 
   nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
 	document.getElementById("farmers").innerHTML = formatNumber(farmers);
@@ -271,7 +271,7 @@ function save(){
 		equipmentCost: equipmentCost,
 		nextEquipmentCost: nextEquipmentCost,
 
-		House: House,
+		house: house,
 		nextHouseCost: nextHouseCost,
 
     axesLevel: axesLevel,
@@ -299,7 +299,7 @@ function loadGame() {
 	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
-	if (typeof savegame.House !== "undefined") House = savegame.House;
+	if (typeof savegame.house !== "undefined") house = savegame.house;
 	showTut = savegame.showTut;
 	firstSell = savegame.firstSell;
 	firstMerchant = savegame.firstMerchant;
@@ -311,7 +311,6 @@ function loadGame() {
 	equipmentCost = savegame.equipmentCost;
 	nextEquipmentCost = savegame.nextEquipmentCost;
 
-  House = savegame.House;
 	nextHouseCost = savegame.nextHouseCost;
 
   axesLevel = savegame.axesLevel;
@@ -359,7 +358,7 @@ window.setInterval(function() {
 }, 3000);
 
 window.setInterval(function() {
-  bringWorker(House);
+  bringWorker(house);
 }, 30000)
 
 function openHTab(evt, HTabName) {
@@ -456,6 +455,6 @@ function buyHouse(){
 		document.getElementById('gold').innerHTML = formatNumber(gold);
 		document.getElementById('wood').innerHTML = formatNumber(wood);
 	}
-	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,House));
+	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,house));
   document.getElementById('houseCost').innerHTML = formatNumber(nextHouseCost);
 }
