@@ -245,17 +245,18 @@ html {
 
 #close {
   position: absolute;
-top: 1px;
-right: 1;
-background: #f1f1f1;
-border: 0px solid #bfbfbf;
-border-radius: 50%;
-color: #ca0f0f;
-font-size: 15px;
-text-align: -webkit-center;
-padding-bottom: 3px;
-padding-left: 7px;
-padding-right: 6px;
+  top: 1px;
+  right: 1;
+  background: #f1f1f1;
+  border: 0px solid #bfbfbf;
+  border-radius: 50%;
+  color: #333;
+  font-size: 15px;
+  text-align: -webkit-center;
+  padding-bottom: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-weight: bold;
 }
 
 #close:hover {
