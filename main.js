@@ -446,12 +446,12 @@ function giveGold(){
 }
 
 function buyHouse(){
-	nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
-	if(gold >= nextHouseCost && workers >= 5 && wood >=1000){
+	houseCost = Math.floor(20000 * Math.pow(HouseX, House));
+	if(gold >= houseCost && workers >= 5 && wood >=1000){
 		House = House + 1;
 		workers = workers - 5;
 		wood = wood - 1000
-		gold = gold - nextHouseCost;
+		gold = gold - houseCost;
 		document.getElementById('House').innerHTML = formatNumber(House);
 		document.getElementById('workers').innerHTML = formatNumber(workers);
 		document.getElementById('gold').innerHTML = formatNumber(gold);
