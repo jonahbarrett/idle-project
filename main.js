@@ -311,6 +311,7 @@ function loadGame() {
 	equipmentCost = savegame.equipmentCost;
 	nextEquipmentCost = savegame.nextEquipmentCost;
 
+  House = savegame.House;
 	nextHouseCost = savegame.nextHouseCost;
 
   axesLevel = savegame.axesLevel;
