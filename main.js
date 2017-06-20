@@ -80,9 +80,11 @@ function sendVal() {
 	$('#equipmentLevel').html(equipmentLevel);
 	$('#equipmentCost').html(nextEquipmentCost);
 
-  nextAxesCost = Math.floor(10000 * Math.pow(1.3,axesLevel));
+  nextAxesCost = formatNumber(Math.floor(10000 * Math.pow(1.3,axesLevel)));
+  $('#axesLevel').html(axesLevel);
+	$('#axesCost').html(nextAxesCost);
 
-	woodRate = lumberjacks;
+	woodRate = lumberjacks * (axesLevel + 1);
 	foodRate = farmers * (equipmentLevel + 1);
 	thirdResource = thirdResource2;
 	if (resource == 0){
@@ -118,7 +120,7 @@ function isEven(n) {
 }
 
 function woodChop (number){
-	wood = wood + number;
+	wood = wood + (number * (axesLevel + 1));
 	};
 
 function farm (number){
@@ -270,8 +272,14 @@ function save(){
 		equipmentLevel: equipmentLevel,
 		equipmentCost: equipmentCost,
 		nextEquipmentCost: nextEquipmentCost,
+<<<<<<< HEAD
 		House: House,
 		nextHouseCost: nextHouseCost,
+=======
+    axesLevel: axesLevel,
+		axesCost: axesCost,
+		nextAxesCost: nextAxesCost,
+>>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 	$('#saving').html("Game Saved").fadeIn('slow');
@@ -304,7 +312,13 @@ function loadGame() {
 	equipmentLevel = savegame.equipmentLevel;
 	equipmentCost = savegame.equipmentCost;
 	nextEquipmentCost = savegame.nextEquipmentCost;
+<<<<<<< HEAD
 	nextHouseCost = savegame.nextHouseCost;
+=======
+  axesLevel = savegame.axesLevel;
+  axesCost = savegame.axesCost;
+  nextAxesCost = savegame.nextAxesCost;
+>>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
 	sendVal();
 	checkTut();
 }
@@ -383,30 +397,36 @@ function openVTab(evt, VTabName) {
 }
 
 function checkTut(){
-	if (farmers>1 && showTut>=0){
+	if (farmers > 1 && showTut >= 0){
 			document.getElementById('tutText1').textContent = "Congratulations! You have your first farmers!";
 			document.getElementById('tutText2').textContent = "Sell some food to hire more workers.";
 			showTut=1;
 		}
 
-	if (firstSell==1 && totalWorkers>=4 && showTut>=1){
+	if (firstSell ==1 && totalWorkers >=4 && showTut >=1){
 		document.getElementById('tutText1').textContent = "Congratulations! You have made your first few sales and hired more workers!";
 		document.getElementById('tutText2').textContent = "Keep selling your food and hire a merchant to make sales for you!";
 		document.getElementById("merchantTab").style.display = "inherit";
 		showTut=2;
 	}
-	if (firstMerchant==1 && showTut>=2){
+	if (firstMerchant ==1 && showTut >= 2){
 		document.getElementById('tutText1').textContent = "Congratulations! You have a merchant!";
 		document.getElementById('tutText2').textContent = "Your farmers could use some new equipment, upgrade it to speed them up!";
 		document.getElementById("farmerUpgrade").style.display = "inherit";
 		showTut=3;
 	}
-	if (equipmentLevel>=3 && showTut>=3){
+	if (equipmentLevel >= 3 && showTut >= 3){
 		document.getElementById('tutText1').textContent = "Wow! Your kingdom is off to a great start!";
 		document.getElementById('tutText2').textContent = "It looks like it is time to hire a lumberjack!";
 		document.getElementById("woodTab").style.display = "inherit";
 		showTut=4;
 	}
+  if (lumberjacks >= 10 && showTut >= 4){
+    document.getElementById('tutText1').textContent = "You have quite a few lumberjacks now.";
+		document.getElementById('tutText2').textContent = "Maybe it's time to upgrade them!";
+    document.getElementById("lumberjackUpgrade").style.display = "inherit";
+    showTut=5;
+  }
 }
 function giveGold(){
 	gold = gold + 1000000
