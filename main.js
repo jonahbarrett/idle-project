@@ -72,7 +72,7 @@ function sendVal() {
 	document.getElementById('workers3').innerHTML = formatNumber(workers);
 	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
 	document.getElementById('shops').innerHTML = formatNumber(shops);
-  document.getElementById("merchRate").innerHTML = merchants + merchWood;
+  document.getElementById("merchRate").innerHTML = 2 * merchants + merchWood;
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
@@ -228,10 +228,10 @@ function sellRes(amount){
 }
 
 function merchSell(amount) {
-	var h = merchWood + merchants;
+	var h = merchWood + 2 * merchants;
   if (food >= amount){
   food = food - amount;
-  gold = gold + amount;
+  gold = gold + 2 * amount;
 }
   if (wood >= amount){
   wood = wood - amount;
