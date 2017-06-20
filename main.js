@@ -449,6 +449,7 @@ function checkTut(){
 function giveGold(){
 	gold = gold + 1000000;
 	workers = workers + 50;
+  totalWorkers = totalWorkers + 50;
 }
 
 function buyHouse(){
