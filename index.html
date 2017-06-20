@@ -18,7 +18,7 @@
   <button class="HTablinks" onclick="openHTab(event, 'Resources')" id="defaultOpen"><span id="foodNum"></span> food</button>
   <button class="HTablinks" onclick="openHTab(event, 'Guys')"><span id="workers">2</span> workers</button>
   <button class="HTablinks" onclick="openHTab(event, 'sellTab')"><span id="gold"></span> gold</button>
-  <button class="HTablinks" onclick="openHTab(event, 'Land')" >Land</button>
+  <button class="HTablinks" onclick="openHTab(event, 'Land')" id="landTab" style="display: none">Land</button>
   <button class="HTablinks" onclick="openHTab(event, 'Options')">Options</button>
     </div>
 
@@ -130,9 +130,12 @@
 </div>
 
 	<div id="Land" class="HTabcontent">
-  <h3>Land</h3>
-  <p>You will be able to purchase land here.</p>
-  <button class="btn" onclick="buyHouse()" id="House">Buy House</button>
+  <h3>Houses</h3>
+  <p>Build some houses for workers to move into.</p>
+  <p>You have <span id="House">0</span> houses, they will attract <span id="houseRate">0</span> workers every minute.</p>
+  <p>Your next house will cost <span id="houseCost">150</span> gold, 1000 wood, and 5 workers to build.</p>
+  <br />
+  <button class="buyBtn" onclick="buyHouse()" id="buyHouse">Build House</button>
   </div>
 
 <div id="Options" class="HTabcontent">

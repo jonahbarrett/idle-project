@@ -14,6 +14,7 @@
 	var House = 0;
 	var HouseX = 1.1;
 	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
+  var houseRate = House;
 
 
   var workers = 2;
@@ -75,7 +76,9 @@ function sendVal() {
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
   document.getElementById('lumberjackCost').innerHTML = formatNumber(Math.floor(1500 * Math.pow(lumberX, lumberjacks)));
 	document.getElementById('farmerCost').innerHTML = formatNumber(Math.floor(10 * Math.pow(farmX, farmers)));
-	//document.getElementById('nextHouseCost').innerHTML = formatNumber(Math.floor(20000 * Math.pow(HouseX, totalHouse)));
+	document.getElementById('houseCost').innerHTML = formatNumber(Math.floor(20000 * Math.pow(HouseX, totalHouse)));
+  houseRate = House;
+$('#houseRate').html(houseRate);
 
 	nextEquipmentCost = formatNumber(Math.floor(1000 * Math.pow(equipmentX, equipmentLevel)));
 	$('#equipmentLevel').html(equipmentLevel);
@@ -127,6 +130,10 @@ function woodChop (number){
 function farm (number){
 	food = food + (number * (equipmentLevel + 1));
   };
+
+function bringWorker (number){
+  workers = workers + houseRate;
+}
 
 function upgradeAxes (){
   	axesCost = Math.floor(10000 * Math.pow(1.3, axesLevel));
@@ -359,6 +366,10 @@ window.setInterval(function() {
 	merchSell(merchants);
 }, 3000);
 
+window.setInterval(function() {
+  bringWorker(House);
+}, 30000)
+
 function openHTab(evt, HTabName) {
     var i, HTabcontent, HTablinks;
     HTabcontent = document.getElementsByClassName("HTabcontent");
@@ -427,10 +438,17 @@ function checkTut(){
     document.getElementById("lumberjackUpgrade").style.display = "inherit";
     showTut=5;
   }
+  if (axesLevel >= 2 && showTut >= 5){
+    document.getElementById('tutText1').textContent = "You need a lot more workers to keep making progress.";
+		document.getElementById('tutText2').textContent = "Build some houses and workers will come on their own to live in them.";
+    document.getElementById("landTab").style.display = "inherit";
+    showTut=6;
+  }
 }
+
 function giveGold(){
-	gold = gold + 1000000
-	workers = workers + 10000
+	gold = gold + 1000000;
+	workers = workers + 50;
 }
 
 function buyHouse(){
