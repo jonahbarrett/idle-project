@@ -137,7 +137,7 @@ function bringWorker (number){
 
 function upgradeAxes (){
   	axesCost = Math.floor(10000 * Math.pow(1.3, axesLevel));
-  	if(gold >= equipmentCost) {
+  	if(gold >= axesCost) {
   		axesLevel = axesLevel + 1;
   		gold = gold - axesCost;
   	}
@@ -239,14 +239,14 @@ function sellRes(amount){
 }
 
 function merchSell(amount) {
-	var h = merchants;
+	var h = (merchants * 100) + merchants;
   if (food >= amount){
   food = food - amount;
   gold = gold + amount;
 }
   if (wood >= amount){
   wood = wood - amount;
-  gold = gold + (amount*50);
+  gold = gold + (amount*100);
   console.log('soldWood');
 }
 	document.getElementById("merchRate").innerHTML = h;
