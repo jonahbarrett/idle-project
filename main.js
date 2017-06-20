@@ -463,7 +463,7 @@ function buyHouse(){
 		document.getElementById('workers').innerHTML = formatNumber(workers);
 		document.getElementById('gold').innerHTML = formatNumber(gold);
 		document.getElementById('wood').innerHTML = formatNumber(wood);
-	};
+	}
 	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,House));
   document.getElementById('houseCost').innerHTML = formatNumber(nextHouseCost);
-};
+}
