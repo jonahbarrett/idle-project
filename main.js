@@ -9,6 +9,11 @@
   var wood = 0;
   var stone = 0;
   var iron = 0;
+  
+	var totalHouse = 0;
+	var House = 0;
+	var HouseX = 1.1;
+
 
   var workers = 2;
   var totalWorkers = 0;
@@ -52,6 +57,7 @@ function sendVal() {
 	document.getElementById("wood").innerHTML = formatNumber(wood);
 	document.getElementById("stone").innerHTML = formatNumber(stone);
 	document.getElementById("iron").innerHTML = formatNumber(iron);
+	document.getElementById("House").innerHTML = formatNumber(House);
 
   nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
 	document.getElementById("farmers").innerHTML = formatNumber(farmers);
@@ -68,6 +74,7 @@ function sendVal() {
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
   document.getElementById('lumberjackCost').innerHTML = formatNumber(Math.floor(1500 * Math.pow(lumberX, lumberjacks)));
 	document.getElementById('farmerCost').innerHTML = formatNumber(Math.floor(10 * Math.pow(farmX, farmers)));
+	//document.getElementById('nextHouseCost').innerHTML = formatNumber(Math.floor(20000 * Math.pow(HouseX, totalHouse)));
 
 	nextEquipmentCost = formatNumber(Math.floor(1000 * Math.pow(equipmentX, equipmentLevel)));
 	$('#equipmentLevel').html(equipmentLevel);
@@ -258,7 +265,20 @@ function save(){
 		firstMerchant: firstMerchant,
 		totalWorkers: totalWorkers,
 		equipmentLevel: equipmentLevel,
+<<<<<<< HEAD
     axesLevel: axesLevel,
+=======
+		equipmentCost: equipmentCost,
+		nextEquipmentCost: nextEquipmentCost,
+<<<<<<< HEAD
+		House: House,
+		nextHouseCost: nextHouseCost,
+=======
+    axesLevel: axesLevel,
+		axesCost: axesCost,
+		nextAxesCost: nextAxesCost,
+>>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
+>>>>>>> 7a842c70c716b80b46bf176b9ab38dba618d283d
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 	$('#saving').html("Game Saved").fadeIn('slow');
@@ -280,12 +300,25 @@ function loadGame() {
 	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
+	if (typeof savegame.House !== "undefined") House = savegame.House;
 	showTut = savegame.showTut;
 	firstSell = savegame.firstSell;
 	firstMerchant = savegame.firstMerchant;
 	totalWorkers = savegame.totalWorkers;
 	equipmentLevel = savegame.equipmentLevel;
+<<<<<<< HEAD
   axesLevel = savegame.axesLevel;
+=======
+	equipmentCost = savegame.equipmentCost;
+	nextEquipmentCost = savegame.nextEquipmentCost;
+<<<<<<< HEAD
+	nextHouseCost = savegame.nextHouseCost;
+=======
+  axesLevel = savegame.axesLevel;
+  axesCost = savegame.axesCost;
+  nextAxesCost = savegame.nextAxesCost;
+>>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
+>>>>>>> 7a842c70c716b80b46bf176b9ab38dba618d283d
 	sendVal();
 	checkTut();
 }
@@ -399,3 +432,20 @@ function giveGold(){
 	gold = gold + 1000000
 	workers = workers + 10000
 }
+
+function buyHouse(){
+	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
+	if(gold >= nextHouseCost && workers >= 5 && wood >=1000){
+		House = House + 1;
+		workers = workers - 5;
+		wood = wood - 1000
+		gold = gold - nextHouseCost;
+		document.getElementById('House').innerHTML = formatNumber(House);
+		document.getElementById('workers').innerHTML = formatNumber(workers);
+		document.getElementById('gold').innerHTML = formatNumber(gold);
+		document.getElementById('wood').innerHTML = formatNumber(wood);
+	};
+	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,House));
+  document.getElementById('nextHouseCost').innerHTML = formatNumber(nextHouseCost);
+};
+
