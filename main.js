@@ -34,6 +34,7 @@
   var foodRate = farmers * (equipmentLevel + 1);
   var woodRate = lumberjacks;
   var merchRate = 0;
+  var merchWood = 0;
 
   var nextWorkerCost = Math.floor(5 * Math.pow(workerX, totalWorkers));
   var nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
@@ -71,7 +72,7 @@ function sendVal() {
 	document.getElementById('workers3').innerHTML = formatNumber(workers);
 	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
 	document.getElementById('shops').innerHTML = formatNumber(shops);
-  document.getElementById("merchRate").innerHTML = (merchants * 100) + merchants;
+  document.getElementById("merchRate").innerHTML = merchants + merchWood;
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
@@ -227,7 +228,7 @@ function sellRes(amount){
 }
 
 function merchSell(amount) {
-	var h = (merchants * 100) + merchants;
+	var h = merchWood + merchants;
   if (food >= amount){
   food = food - amount;
   gold = gold + amount;
@@ -235,7 +236,10 @@ function merchSell(amount) {
   if (wood >= amount){
   wood = wood - amount;
   gold = gold + (amount*100);
-  console.log('soldWood');
+  merchWood = merchants * 100;
+}
+if (wood < amount){
+  merchWood = 0;
 }
 	document.getElementById("merchRate").innerHTML = h;
 }
