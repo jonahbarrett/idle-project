@@ -465,5 +465,5 @@ function buyHouse(){
 		document.getElementById('wood').innerHTML = formatNumber(wood);
 	};
 	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,House));
-  document.getElementById('nextHouseCost').innerHTML = formatNumber(nextHouseCost);
+  document.getElementById('houseCost').innerHTML = formatNumber(nextHouseCost);
 };
