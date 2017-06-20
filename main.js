@@ -9,7 +9,7 @@
   var wood = 0;
   var stone = 0;
   var iron = 0;
-  
+
 	var totalHouse = 0;
 	var House = 0;
 	var HouseX = 1.1;
@@ -265,20 +265,19 @@ function save(){
 		firstMerchant: firstMerchant,
 		totalWorkers: totalWorkers,
 		equipmentLevel: equipmentLevel,
-<<<<<<< HEAD
+
     axesLevel: axesLevel,
-=======
+
 		equipmentCost: equipmentCost,
 		nextEquipmentCost: nextEquipmentCost,
-<<<<<<< HEAD
+
 		House: House,
 		nextHouseCost: nextHouseCost,
-=======
+
     axesLevel: axesLevel,
 		axesCost: axesCost,
 		nextAxesCost: nextAxesCost,
->>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
->>>>>>> 7a842c70c716b80b46bf176b9ab38dba618d283d
+
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 	$('#saving').html("Game Saved").fadeIn('slow');
@@ -306,19 +305,18 @@ function loadGame() {
 	firstMerchant = savegame.firstMerchant;
 	totalWorkers = savegame.totalWorkers;
 	equipmentLevel = savegame.equipmentLevel;
-<<<<<<< HEAD
+
   axesLevel = savegame.axesLevel;
-=======
+
 	equipmentCost = savegame.equipmentCost;
 	nextEquipmentCost = savegame.nextEquipmentCost;
-<<<<<<< HEAD
+
 	nextHouseCost = savegame.nextHouseCost;
-=======
+
   axesLevel = savegame.axesLevel;
   axesCost = savegame.axesCost;
   nextAxesCost = savegame.nextAxesCost;
->>>>>>> 8a24278771c81230583b2cae09d6be6b13f001db
->>>>>>> 7a842c70c716b80b46bf176b9ab38dba618d283d
+
 	sendVal();
 	checkTut();
 }
@@ -448,4 +446,3 @@ function buyHouse(){
 	nextHouseCost = Math.floor(20000 * Math.pow(HouseX,House));
   document.getElementById('nextHouseCost').innerHTML = formatNumber(nextHouseCost);
 };
-
