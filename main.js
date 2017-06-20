@@ -13,6 +13,7 @@
 	var totalHouse = 0;
 	var House = 0;
 	var HouseX = 1.1;
+	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
 
 
   var workers = 2;
@@ -433,7 +434,7 @@ function giveGold(){
 }
 
 function buyHouse(){
-	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
+	nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
 	if(gold >= nextHouseCost && workers >= 5 && wood >=1000){
 		House = House + 1;
 		workers = workers - 5;
