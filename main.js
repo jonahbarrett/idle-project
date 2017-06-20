@@ -208,6 +208,7 @@ function hireMerchant() {
 		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+  document.getElementById("merchRate").innerHTML = (merchants * 100) + merchants;
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
 	if(merchants>0){
 		firstMerchant = 1;
