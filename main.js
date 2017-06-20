@@ -71,6 +71,7 @@ function sendVal() {
 	document.getElementById('workers3').innerHTML = formatNumber(workers);
 	document.getElementById('workerCost').innerHTML = formatNumber(nextWorkerCost);
 	document.getElementById('shops').innerHTML = formatNumber(shops);
+  document.getElementById("merchRate").innerHTML = (merchants * 100) + merchants;
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
@@ -141,8 +142,7 @@ function upgradeAxes (){
   		axesLevel = axesLevel + 1;
   		gold = gold - axesCost;
   	}
-  	nextAxesCost = Math.floor(10000 * Math.pow(1.3, axesLevel));
-  	document.getElementById('axesCost').innerHTML = formatNumber(nextAxesCost);
+  	sendVal();
 }
 function upgradeEquipment (){
 	equipmentCost = Math.floor(1000 * Math.pow(1.3, equipmentLevel));
@@ -150,8 +150,7 @@ function upgradeEquipment (){
 		equipmentLevel = equipmentLevel + 1;
 		gold = gold - equipmentCost;
 	}
-	nextEquipmentCost = Math.floor(1000 * Math.pow(1.3, equipmentLevel));
-	document.getElementById('equipmentCost').innerHTML = formatNumber(nextEquipmentCost);
+	sendVal();
 }
 
 function hireWorker (){
@@ -176,12 +175,8 @@ function hireFarmer(){
 		farmers = farmers + 1;
 		workers = workers - 1;
 		gold = gold - farmerCost;
-		document.getElementById('farmers').innerHTML = formatNumber(farmers);
-		document.getElementById('workers').innerHTML = formatNumber(workers);
-		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
-	nextFarmerCost = Math.floor(10 * Math.pow(farmX, farmers));
-  document.getElementById('farmerCost').innerHTML = formatNumber(nextFarmerCost);
+  sendVal();
 };
 
 function hireLumberjack(){
@@ -190,12 +185,8 @@ function hireLumberjack(){
 		lumberjacks = lumberjacks + 1;
 		workers = workers - 1;
 		gold = gold - lumberjackCost;
-		document.getElementById('lumberjacks').innerHTML = formatNumber(lumberjacks);
-		document.getElementById('workers').innerHTML = formatNumber(workers);
-		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
-	nextLumberjackCost = Math.floor(1500 * Math.pow(lumberX,lumberjacks));
-  document.getElementById('lumberjackCost').innerHTML = formatNumber(nextLumberjackCost);
+	sendVal();
 };
 
 function hireMerchant() {
@@ -204,12 +195,8 @@ function hireMerchant() {
 		merchants = merchants + 1;
 		workers = workers - 1;
 		gold = gold - merchantCost;
-		document.getElementById('merchants').innerHTML = formatNumber(merchants);
-		document.getElementById('gold').innerHTML = formatNumber(gold);
 	};
-	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
-  document.getElementById("merchRate").innerHTML = (merchants * 100) + merchants;
-	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
+	 sendVal();
 	if(merchants>0){
 		firstMerchant = 1;
 	}
