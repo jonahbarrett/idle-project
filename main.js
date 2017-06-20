@@ -249,13 +249,8 @@ function save(){
 		foodRate: foodRate,
 		workers: workers,
 		farmers: farmers,
-		workerCost: workerCost,
 	  lumberjacks: lumberjacks,
-	  lumberjackCost: lumberjackCost,
 		merchants: merchants,
-		merchantCost: merchantCost,
-		merchRate: merchRate,
-    woodRate: woodRate,
     wood: wood,
 	  world: world,
 		showTut: showTut,
@@ -263,11 +258,7 @@ function save(){
 		firstMerchant: firstMerchant,
 		totalWorkers: totalWorkers,
 		equipmentLevel: equipmentLevel,
-		equipmentCost: equipmentCost,
-		nextEquipmentCost: nextEquipmentCost,
     axesLevel: axesLevel,
-		axesCost: axesCost,
-		nextAxesCost: nextAxesCost,
 	}
 	localStorage.setItem("save",JSON.stringify(save));
 	$('#saving').html("Game Saved").fadeIn('slow');
@@ -288,20 +279,13 @@ function loadGame() {
   if (typeof savegame.woodRate !== "undefined") woodRate = savegame.woodRate;
 	if (typeof savegame.merchRate !== "undefined") merchRate = savegame.merchRate;
 	if (typeof savegame.gold !== "undefined") gold = savegame.gold;
-	if (typeof savegame.workerCost !== "undefined") workerCost = savegame.workerCost;
-	if (typeof savegame.lumberjackCost !== "undefined") lumberjackCost = savegame.lumberjackCost;
-	if (typeof savegame.merchantCost !== "undefined") merchantCost = savegame.merchantCost;
 	if (typeof savegame.world !== "undefined") world = savegame.world;
 	showTut = savegame.showTut;
 	firstSell = savegame.firstSell;
 	firstMerchant = savegame.firstMerchant;
 	totalWorkers = savegame.totalWorkers;
 	equipmentLevel = savegame.equipmentLevel;
-	equipmentCost = savegame.equipmentCost;
-	nextEquipmentCost = savegame.nextEquipmentCost;
   axesLevel = savegame.axesLevel;
-  axesCost = savegame.axesCost;
-  nextAxesCost = savegame.nextAxesCost;
 	sendVal();
 	checkTut();
 }
