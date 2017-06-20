@@ -10,11 +10,10 @@
   var stone = 0;
   var iron = 0;
 
-	var totalHouse = 0;
 	var House = 0;
 	var HouseX = 1.1;
 	var nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
-  var houseRate = House;
+  var houseRate = house;
 
 
   var workers = 2;
@@ -75,12 +74,12 @@ function sendVal() {
   document.getElementById("merchRate").innerHTML = 2 * merchants + merchWood;
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
-  nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
+  nextHouseCost = Math.floor(20000 * Math.pow(HouseX, house));
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
   document.getElementById('lumberjackCost').innerHTML = formatNumber(Math.floor(1500 * Math.pow(lumberX, lumberjacks)));
 	document.getElementById('farmerCost').innerHTML = formatNumber(Math.floor(10 * Math.pow(farmX, farmers)));
 	document.getElementById('houseCost').innerHTML = formatNumber(nextHouseCost);
-  houseRate = House;
+  houseRate = house;
 $('#houseRate').html(houseRate);
 
 	nextEquipmentCost = formatNumber(Math.floor(1000 * Math.pow(equipmentX, equipmentLevel)));
@@ -446,13 +445,13 @@ function giveGold(){
 }
 
 function buyHouse(){
-	houseCost = Math.floor(20000 * Math.pow(HouseX, House));
+	houseCost = Math.floor(20000 * Math.pow(HouseX, house));
 	if(gold >= houseCost && workers >= 5 && wood >=1000){
-		House = House + 1;
+		house = house + 1;
 		workers = workers - 5;
 		wood = wood - 1000
 		gold = gold - houseCost;
-		document.getElementById('House').innerHTML = formatNumber(House);
+		document.getElementById('House').innerHTML = formatNumber(house);
 		document.getElementById('workers').innerHTML = formatNumber(workers);
 		document.getElementById('gold').innerHTML = formatNumber(gold);
 		document.getElementById('wood').innerHTML = formatNumber(wood);
