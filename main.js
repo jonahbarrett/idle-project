@@ -75,10 +75,11 @@ function sendVal() {
   document.getElementById("merchRate").innerHTML = 2 * merchants + merchWood;
 
 	nextMerchantCost = Math.floor(150 * Math.pow(merchX,merchants));
+  nextHouseCost = Math.floor(20000 * Math.pow(HouseX, totalHouse));
 	document.getElementById('merchantCost').innerHTML = formatNumber(nextMerchantCost);
   document.getElementById('lumberjackCost').innerHTML = formatNumber(Math.floor(1500 * Math.pow(lumberX, lumberjacks)));
 	document.getElementById('farmerCost').innerHTML = formatNumber(Math.floor(10 * Math.pow(farmX, farmers)));
-	document.getElementById('houseCost').innerHTML = formatNumber(Math.floor(20000 * Math.pow(HouseX, totalHouse)));
+	document.getElementById('houseCost').innerHTML = formatNumber(nextHouseCost);
   houseRate = House;
 $('#houseRate').html(houseRate);
 
