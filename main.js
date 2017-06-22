@@ -326,10 +326,14 @@ function deleteSave() {
 }
 
 var ranges = [
-  { divider: 1e18 , suffix: 'P' },
-  { divider: 1e15 , suffix: 'E' },
+  { divider: 1e30 , suffix: 'N' },
+  { divider: 1e27 , suffix: 'Oc' },
+  { divider: 1e24 , suffix: 'Sp' },
+  { divider: 1e21 , suffix: 'Sx' },
+  { divider: 1e18 , suffix: 'Qi' },
+  { divider: 1e15 , suffix: 'Qa' },
   { divider: 1e12 , suffix: 'T' },
-  { divider: 1e9 , suffix: 'G' },
+  { divider: 1e9 , suffix: 'B' },
   { divider: 1e6 , suffix: 'M' },
   { divider: 1e3 , suffix: 'k' }
 ];
