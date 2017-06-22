@@ -447,6 +447,15 @@ function giveGold(){
   totalWorkers = totalWorkers + 50;
 }
 
+function manualSave(){
+  ga('send', {
+  hitType: 'event',
+  eventCategory: 'Save',
+  eventAction: 'saved',
+  eventLabel: 'Manual Save'
+});
+}
+
 function buyHouse(){
 	houseCost = Math.floor(20000 * Math.pow(HouseX, house));
 	if(gold >= houseCost && workers >= 5 && wood >=1000){
