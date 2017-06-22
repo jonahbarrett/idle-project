@@ -1,5 +1,5 @@
   var merchX = 1.2;
-	var workerX = 1.1;
+	var workerX = 1.01;
 	var farmX = 1.1;
 	var lumberX = 1.1;
 	var equipmentX = 1.3;
@@ -100,7 +100,7 @@ $('#houseRate').html(houseRate);
 		document.getElementById('res').innerHTML = "food";
 		document.getElementById('res2').innerHTML = "food";
 		document.getElementById("resAmt").innerHTML = "1 gold per ";
-    $('#woodTotal').html(max);
+    $('#woodTotal').html(formatNumber(max));
     $('#wood2').html( "food.");
 	}
 	if (resource == 1){
