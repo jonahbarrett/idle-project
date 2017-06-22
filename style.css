@@ -283,17 +283,17 @@ html {
 }
 
 #saving {
-    color: #31708f;
-    position: relative;
-    top: 545px;
-    left: 10%;
-    background-color: #d9edf7;
-    text-align: center;
-    width: 100px;
-    height: 17px;
-    padding: 10px 2px;
-    border: 1px #bce8f1 solid;
-    border-radius: 4px;
+  color: #31708f;
+  position: absolute;
+  top: 83%;
+  left: 10%;
+  background-color: #d9edf7;
+  text-align: center;
+  width: 100px;
+  height: 17px;
+  padding: 10px 2px;
+  border: 1px #bce8f1 solid;
+  border-radius: 4px;
 }
 
 #disclaimer {
